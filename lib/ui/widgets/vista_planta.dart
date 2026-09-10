@@ -195,7 +195,7 @@ class _PintorPlanta extends CustomPainter {
 
   void _reticula(Canvas canvas, Size size) {
     final p = Paint()
-      ..color = Paleta.linea.withOpacity(0.55)
+      ..color = Paleta.linea.withValues(alpha: 0.55)
       ..strokeWidth = 0.6;
     const paso = 28.0;
     for (var x = 0.0; x < size.width; x += paso) {

@@ -4,6 +4,7 @@
 /// validador de casos (tool/generar_casos.py) comprueba esa condición antes
 /// de publicar cualquier caso. Si dos errores compartieran firma, el
 /// estudiante enfrentaría casos con dos diagnósticos igualmente defendibles.
+library;
 
 class TipoError {
   final String clave;
