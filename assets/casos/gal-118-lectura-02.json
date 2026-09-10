@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.0",
+  "identificacion": {
+    "id": "gal-118-lectura-02",
+    "titulo": "Arrastre con lectura dudosa — Galería 118 N",
+    "bloque": "A",
+    "orden": 2,
+    "tipo_ejercicio": "poligonal_abierta",
+    "andamiaje": "alto"
+  },
+  "encargo": {
+    "labor": "Galería 118 N — Nivel 3850",
+    "solicitante": "Jefe de Topografía",
+    "contexto": "Nuevo arrastre sobre la misma galería, con brigada de turno noche. El ayudante anotó las lecturas a mano en libreta de campo.",
+    "objetivo": "Procesa la poligonal y determina si el trabajo es utilizable para dar línea al frente."
+  },
+  "parametros": {
+    "unidad_angular": "grados_decimales",
+    "unidad_lineal": "metros",
+    "sistema_coordenadas": "local_mina",
+    "tolerancia": {
+      "angular_seg": 60.0,
+      "lineal_m": 0.0486,
+      "cota_m": 0.05,
+      "denominador": 3000,
+      "n_angulos": 4,
+      "fuente": "Estándar de la operación — PENDIENTE de validación por topógrafo de mina"
+    }
+  },
+  "decision": {
+    "correcta": "repetir",
+    "justificaciones": [
+      {
+        "id": "j1",
+        "texto": "El cierre angular excede la tolerancia y el error se concentra en una sola estación: es una equivocación de lectura que no se puede recuperar en gabinete.",
+        "correcta": true
+      },
+      {
+        "id": "j2",
+        "texto": "El error se puede repartir entre todas las estaciones aplicando compensación proporcional.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      },
+      {
+        "id": "j3",
+        "texto": "Basta con descartar la última estación y usar las anteriores.",
+        "correcta": false,
+        "tipo_distractor": "tecnicamente_falso"
+      },
+      {
+        "id": "j4",
+        "texto": "El trabajo se hizo en turno noche, y el turno noche siempre tiene menor precisión.",
+        "correcta": false,
+        "tipo_distractor": "cierto_pero_irrelevante"
+      }
+    ]
+  },
+  "consecuencia": {
+    "aceptar": {
+      "texto": "Diste línea al frente con un error de {{error_lineal_m}} m. La galería avanzó desviada del eje de diseño y hubo que reperfilar el tramo ejecutado.",
+      "impacto": "alto"
+    },
+    "compensar": {
+      "texto": "Repartiste entre todas las estaciones un error que estaba en una sola. Ninguna coordenada quedó correcta y el error se propagó disimulado a todo el nivel.",
+      "impacto": "alto"
+    },
+    "repetir": {
+      "texto": "La brigada reobservó la poligonal en el turno siguiente. Costó un turno de topografía y evitó un desvío del frente.",
+      "impacto": "bajo"
+    },
+    "escalar": {
+      "texto": "Reportaste sin resolver. El jefe de topografía ordenó exactamente lo que ya podías decidir: repetir. Se perdió medio turno.",
+      "impacto": "medio"
+    }
+  },
+  "diagnostico": {
+    "que_habia": "Una equivocación de lectura en el ángulo horizontal de la estación señalada, del orden de medio grado.",
+    "por_que": "Es el error más común en anotación manual: se transpone una cifra o se lee el limbo en la graduación equivocada. No es falta de precisión del instrumento, es una equivocación puntual.",
+    "como_detectar": "Un error angular grande con el resto de la poligonal coherente indica equivocación concentrada. Si el error fuera de precisión, se repartiría entre todas las estaciones en magnitudes pequeñas."
+  },
+  "metadatos": {
+    "autor": "equipo TopoLux",
+    "validado_por": "PENDIENTE — requiere topógrafo de mina",
+    "origen": "manual",
+    "estado": "borrador"
+  },
+  "control": {
+    "punto_arranque": {
+      "id": "BM-12",
+      "norte": 1000.0,
+      "este": 1000.0,
+      "cota": 3850.0
+    },
+    "punto_orientacion": {
+      "id": "BM-11",
+      "norte": 1042.18,
+      "este": 955.64,
+      "cota": 3849.12
+    },
+    "punto_cierre": {
+      "id": "BM-20",
+      "norte": 1099.7208,
+      "este": 1106.2255,
+      "cota": 3850.6836
+    },
+    "referencia_cierre": {
+      "id": "BM-21",
+      "azimut": 132.4
+    }
+  },
+  "diseno": {
+    "eje": [
+      {
+        "id": "D-0",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "D-1",
+        "norte": 1033.1787,
+        "este": 1034.963,
+        "cota": 3850.241
+      },
+      {
+        "id": "D-2",
+        "norte": 1068.9846,
+        "este": 1073.4948,
+        "cota": 3850.504
+      },
+      {
+        "id": "D-3",
+        "norte": 1099.7208,
+        "este": 1106.2255,
+        "cota": 3850.6836
+      }
+    ]
+  },
+  "libreta": {
+    "generada_por_validador": true,
+    "estaciones": [
+      {
+        "estacion": "BM-12",
+        "punto_atras": "BM-11",
+        "punto_visado": "E-1",
+        "angulo_horizontal": 92.943309,
+        "angulo_cenital": 89.692008,
+        "distancia_inclinada": 48.2061,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Estación sobre pilar de concreto."
+      },
+      {
+        "estacion": "E-1",
+        "punto_atras": "BM-12",
+        "punto_visado": "E-2",
+        "angulo_horizontal": 181.100298,
+        "angulo_cenital": 89.694087,
+        "distancia_inclinada": 52.6014,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Anotación manual, turno noche."
+      },
+      {
+        "estacion": "E-2",
+        "punto_atras": "E-1",
+        "punto_visado": "BM-20",
+        "angulo_horizontal": 179.699703,
+        "angulo_cenital": 89.747224,
+        "distancia_inclinada": 44.9013,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Prisma sobre trípode."
+      },
+      {
+        "estacion": "BM-20",
+        "punto_atras": "E-2",
+        "punto_visado": "BM-21",
+        "angulo_horizontal": 265.599742,
+        "angulo_cenital": null,
+        "distancia_inclinada": null,
+        "altura_instrumento": null,
+        "altura_prisma": null,
+        "observaciones": ""
+      }
+    ]
+  },
+  "error_inducido": {
+    "tipo": "error_lectura_angulo",
+    "diagnostico_esperado": "error_lectura_angulo",
+    "estacion": "E-1",
+    "firma": {
+      "cierre_angular_dentro_tolerancia": false,
+      "cierre_lineal_dentro_tolerancia": false,
+      "cierre_cota_dentro_tolerancia": true,
+      "anomalia": "rotacion_parcial"
+    }
+  },
+  "solucion_referencia": {
+    "generada_por_validador": true,
+    "puntos": [
+      {
+        "id": "BM-12",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "E-1",
+        "norte": 1033.1822,
+        "este": 1034.9671,
+        "cota": 3850.2411
+      },
+      {
+        "id": "E-2",
+        "norte": 1068.6506,
+        "este": 1073.8108,
+        "cota": 3850.504
+      },
+      {
+        "id": "BM-20",
+        "norte": 1099.1004,
+        "este": 1106.8092,
+        "cota": 3850.6841
+      }
+    ],
+    "tramos": [
+      {
+        "azimut": 46.500295,
+        "distancia_horizontal": 48.2054,
+        "desnivel": 0.2411
+      },
+      {
+        "azimut": 47.600593,
+        "distancia_horizontal": 52.6007,
+        "desnivel": 0.2628
+      },
+      {
+        "azimut": 47.300296,
+        "distancia_horizontal": 44.9008,
+        "desnivel": 0.1801
+      }
+    ],
+    "perimetro_m": 145.7069,
+    "azimut_cierre_calculado": 132.900038,
+    "error_angular_segundos": 1800.14,
+    "error_lineal_m": 0.8518,
+    "error_norte_m": -0.6204,
+    "error_este_m": 0.5837,
+    "error_cota_m": 0.0005,
+    "relacion_cierre": 171.1,
+    "uso_tolerancia": 30.002
+  }
+}

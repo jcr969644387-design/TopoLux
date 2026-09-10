@@ -1,0 +1,282 @@
+{
+  "schema_version": "1.0",
+  "identificacion": {
+    "id": "cx-220-limpio-03",
+    "titulo": "Poligonal de crucero — Cx 220 E",
+    "bloque": "A",
+    "orden": 3,
+    "tipo_ejercicio": "poligonal_abierta",
+    "andamiaje": "alto"
+  },
+  "encargo": {
+    "labor": "Crucero 220 E — Nivel 3850",
+    "solicitante": "Jefe de Topografía",
+    "contexto": "Arrastre de cuatro tramos hacia el crucero de exploración. La labor es más larga que la anterior y la tolerancia angular se calcula sobre el número de ángulos observados.",
+    "objetivo": "Procesa la poligonal y decide qué hacer antes de entregar las coordenadas al área de planeamiento."
+  },
+  "parametros": {
+    "unidad_angular": "grados_decimales",
+    "unidad_lineal": "metros",
+    "sistema_coordenadas": "local_mina",
+    "tolerancia": {
+      "angular_seg": 67.082,
+      "lineal_m": 0.0751,
+      "cota_m": 0.05,
+      "denominador": 3000,
+      "n_angulos": 5,
+      "fuente": "Estándar de la operación — PENDIENTE de validación por topógrafo de mina"
+    }
+  },
+  "decision": {
+    "correcta": "compensar",
+    "justificaciones": [
+      {
+        "id": "j1",
+        "texto": "Los cierres están dentro de tolerancia pero el residuo es significativo: debe repartirse antes de publicar las coordenadas.",
+        "correcta": true
+      },
+      {
+        "id": "j2",
+        "texto": "El residuo excede la tolerancia y obliga a reobservar la poligonal.",
+        "correcta": false,
+        "tipo_distractor": "tecnicamente_falso"
+      },
+      {
+        "id": "j3",
+        "texto": "Al estar dentro de tolerancia, las coordenadas se entregan tal cual sin ningún tratamiento.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      },
+      {
+        "id": "j4",
+        "texto": "El goteo de agua en el tramo intermedio degrada la medición electrónica de distancias.",
+        "correcta": false,
+        "tipo_distractor": "cierto_pero_irrelevante"
+      }
+    ]
+  },
+  "consecuencia": {
+    "aceptar": {
+      "texto": "Entregaste sin compensar. El residuo de {{error_lineal_m}} m quedó íntegro en el último punto, y todo lo que se replantee desde ahí arrastra ese desplazamiento.",
+      "impacto": "medio"
+    },
+    "compensar": {
+      "texto": "Repartiste el residuo entre los tramos. Las coordenadas quedaron consistentes con los puntos de control del nivel.",
+      "impacto": "bajo"
+    },
+    "repetir": {
+      "texto": "Mandaste a repetir un trabajo que cumplía el estándar. Un turno perdido y el crucero sin control topográfico.",
+      "impacto": "medio"
+    },
+    "escalar": {
+      "texto": "Escalaste una decisión de rutina. El jefe de topografía respondió que compensaras, que es lo que correspondía.",
+      "impacto": "medio"
+    }
+  },
+  "diagnostico": {
+    "que_habia": "No había equivocaciones. El residuo corresponde a errores accidentales acumulados en una poligonal más larga.",
+    "por_que": "El error accidental crece con el número de estaciones. Por eso la tolerancia angular se calcula con la raíz del número de ángulos y no como un valor fijo.",
+    "como_detectar": "Residuo dentro de tolerancia pero no despreciable, repartido y sin concentración en ninguna estación: caso típico de compensación."
+  },
+  "metadatos": {
+    "autor": "equipo TopoLux",
+    "validado_por": "PENDIENTE — requiere topógrafo de mina",
+    "origen": "manual",
+    "estado": "borrador"
+  },
+  "control": {
+    "punto_arranque": {
+      "id": "BM-12",
+      "norte": 1000.0,
+      "este": 1000.0,
+      "cota": 3850.0
+    },
+    "punto_orientacion": {
+      "id": "BM-11",
+      "norte": 1042.18,
+      "este": 955.64,
+      "cota": 3849.12
+    },
+    "punto_cierre": {
+      "id": "BM-20",
+      "norte": 1152.7121,
+      "este": 1165.4913,
+      "cota": 3851.2461
+    },
+    "referencia_cierre": {
+      "id": "BM-21",
+      "azimut": 132.4
+    }
+  },
+  "diseno": {
+    "eje": [
+      {
+        "id": "D-0",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "D-1",
+        "norte": 1040.1999,
+        "este": 1042.3619,
+        "cota": 3850.3504
+      },
+      {
+        "id": "D-2",
+        "norte": 1081.325,
+        "este": 1088.3577,
+        "cota": 3850.7206
+      },
+      {
+        "id": "D-3",
+        "norte": 1118.6851,
+        "este": 1129.1292,
+        "cota": 3850.9971
+      },
+      {
+        "id": "D-4",
+        "norte": 1152.7121,
+        "este": 1165.4913,
+        "cota": 3851.2461
+      }
+    ]
+  },
+  "libreta": {
+    "generada_por_validador": true,
+    "estaciones": [
+      {
+        "estacion": "BM-12",
+        "punto_atras": "BM-11",
+        "punto_visado": "E-1",
+        "angulo_horizontal": 92.939817,
+        "angulo_cenital": 89.637226,
+        "distancia_inclinada": 58.4025,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Estación sobre pilar de concreto."
+      },
+      {
+        "estacion": "E-1",
+        "punto_atras": "BM-12",
+        "punto_visado": "E-2",
+        "angulo_horizontal": 181.698161,
+        "angulo_cenital": 89.63681,
+        "distancia_inclinada": 61.6944,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Tramo con goteo de agua; se protegió el instrumento."
+      },
+      {
+        "estacion": "E-2",
+        "punto_atras": "E-1",
+        "punto_visado": "E-3",
+        "angulo_horizontal": 179.30135,
+        "angulo_cenital": 89.6941,
+        "distancia_inclinada": 55.2976,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Visual larga, buena visibilidad."
+      },
+      {
+        "estacion": "E-3",
+        "punto_atras": "E-2",
+        "punto_visado": "BM-20",
+        "angulo_horizontal": 179.397176,
+        "angulo_cenital": 89.687032,
+        "distancia_inclinada": 49.8005,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Prisma sobre trípode."
+      },
+      {
+        "estacion": "BM-20",
+        "punto_atras": "E-3",
+        "punto_visado": "BM-21",
+        "angulo_horizontal": 265.497329,
+        "angulo_cenital": null,
+        "distancia_inclinada": null,
+        "altura_instrumento": null,
+        "altura_prisma": null,
+        "observaciones": ""
+      }
+    ]
+  },
+  "error_inducido": {
+    "tipo": "ninguno",
+    "diagnostico_esperado": "ninguno",
+    "estacion": null,
+    "firma": {
+      "cierre_angular_dentro_tolerancia": true,
+      "cierre_lineal_dentro_tolerancia": true,
+      "cierre_cota_dentro_tolerancia": true,
+      "anomalia": "ninguna"
+    }
+  },
+  "solucion_referencia": {
+    "generada_por_validador": true,
+    "puntos": [
+      {
+        "id": "BM-12",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "E-1",
+        "norte": 1040.2032,
+        "este": 1042.3606,
+        "cota": 3850.3518
+      },
+      {
+        "id": "E-2",
+        "norte": 1081.3277,
+        "este": 1088.3477,
+        "cota": 3850.7248
+      },
+      {
+        "id": "E-3",
+        "norte": 1118.6883,
+        "este": 1129.1144,
+        "cota": 3851.0021
+      },
+      {
+        "id": "BM-20",
+        "norte": 1152.7193,
+        "este": 1165.4724,
+        "cota": 3851.2561
+      }
+    ],
+    "tramos": [
+      {
+        "azimut": 46.496804,
+        "distancia_horizontal": 58.4013,
+        "desnivel": 0.3518
+      },
+      {
+        "azimut": 48.194965,
+        "distancia_horizontal": 61.6931,
+        "desnivel": 0.3731
+      },
+      {
+        "azimut": 47.496315,
+        "distancia_horizontal": 55.2968,
+        "desnivel": 0.2772
+      },
+      {
+        "azimut": 46.89349,
+        "distancia_horizontal": 49.7998,
+        "desnivel": 0.254
+      }
+    ],
+    "perimetro_m": 225.191,
+    "azimut_cierre_calculado": 132.390819,
+    "error_angular_segundos": -33.05,
+    "error_lineal_m": 0.0202,
+    "error_norte_m": 0.0071,
+    "error_este_m": -0.0189,
+    "error_cota_m": 0.01,
+    "relacion_cierre": 11168.4,
+    "uso_tolerancia": 0.493
+  }
+}

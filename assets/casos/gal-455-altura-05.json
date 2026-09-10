@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.0",
+  "identificacion": {
+    "id": "gal-455-altura-05",
+    "titulo": "Galería 455 S — control de avance mensual",
+    "bloque": "B",
+    "orden": 5,
+    "tipo_ejercicio": "poligonal_abierta",
+    "andamiaje": "medio"
+  },
+  "encargo": {
+    "labor": "Galería 455 S — Nivel 3850",
+    "solicitante": "Jefe de Topografía",
+    "contexto": "Levantamiento del avance del mes para la valorización del contratista. La brigada cambió de instrumento a mitad del trabajo.",
+    "objetivo": "Procesa la poligonal y decide si el levantamiento sirve para valorizar el avance."
+  },
+  "parametros": {
+    "unidad_angular": "grados_decimales",
+    "unidad_lineal": "metros",
+    "sistema_coordenadas": "local_mina",
+    "tolerancia": {
+      "angular_seg": 60.0,
+      "lineal_m": 0.0488,
+      "cota_m": 0.05,
+      "denominador": 3000,
+      "n_angulos": 4,
+      "fuente": "Estándar de la operación — PENDIENTE de validación por topógrafo de mina"
+    }
+  },
+  "decision": {
+    "correcta": "repetir",
+    "justificaciones": [
+      {
+        "id": "j1",
+        "texto": "La planimetría cierra pero la cota sale desplazada en una cantidad constante, compatible con una altura de instrumento mal anotada que ya no puede verificarse.",
+        "correcta": true
+      },
+      {
+        "id": "j2",
+        "texto": "El desplazamiento de cota se debe a error de esfericidad acumulado en la poligonal.",
+        "correcta": false,
+        "tipo_distractor": "tecnicamente_falso"
+      },
+      {
+        "id": "j3",
+        "texto": "Como el error de cota es constante, basta restarlo a todos los puntos.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      },
+      {
+        "id": "j4",
+        "texto": "El cambio de instrumento por falla de batería invalida automáticamente todo el levantamiento.",
+        "correcta": false,
+        "tipo_distractor": "tecnicamente_falso"
+      }
+    ]
+  },
+  "consecuencia": {
+    "aceptar": {
+      "texto": "Valorizaste con una cota desplazada {{error_cota_m}} m. El avance reportado no coincidió con el control del área de planeamiento y la valorización se observó.",
+      "impacto": "alto"
+    },
+    "compensar": {
+      "texto": "Repartiste un desplazamiento constante como si fuera error accidental. La cota quedó mal en todos los puntos, unos más que otros.",
+      "impacto": "alto"
+    },
+    "repetir": {
+      "texto": "Se reobservó el tramo con la altura de instrumento verificada. La valorización salió sin observaciones.",
+      "impacto": "bajo"
+    },
+    "escalar": {
+      "texto": "Escalaste un problema que podías diagnosticar tú. Se perdió tiempo de valorización.",
+      "impacto": "medio"
+    }
+  },
+  "diagnostico": {
+    "que_habia": "La altura de instrumento anotada en la estación señalada no corresponde a la real; hay una diferencia de unos 30 centímetros.",
+    "por_que": "Ocurre al cambiar de instrumento o rehacer el estacionamiento sin volver a medir la altura, o al copiar la altura de la estación anterior.",
+    "como_detectar": "Planimetría intacta y cota desplazada en un valor constante y de magnitud 'redonda'. A diferencia de la confusión cenital/vertical, aquí el desnivel no cambia de signo: sólo se corre."
+  },
+  "metadatos": {
+    "autor": "equipo TopoLux",
+    "validado_por": "PENDIENTE — requiere topógrafo de mina",
+    "origen": "manual",
+    "estado": "borrador"
+  },
+  "control": {
+    "punto_arranque": {
+      "id": "BM-12",
+      "norte": 1000.0,
+      "este": 1000.0,
+      "cota": 3850.0
+    },
+    "punto_orientacion": {
+      "id": "BM-11",
+      "norte": 1042.18,
+      "este": 955.64,
+      "cota": 3849.12
+    },
+    "punto_cierre": {
+      "id": "BM-20",
+      "norte": 883.4594,
+      "este": 911.2453,
+      "cota": 3850.6345
+    },
+    "referencia_cierre": {
+      "id": "BM-21",
+      "azimut": 132.4
+    }
+  },
+  "diseno": {
+    "eje": [
+      {
+        "id": "D-0",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "D-1",
+        "norte": 962.331,
+        "este": 972.228,
+        "cota": 3850.1872
+      },
+      {
+        "id": "D-2",
+        "norte": 922.0399,
+        "este": 940.6358,
+        "cota": 3850.392
+      },
+      {
+        "id": "D-3",
+        "norte": 883.4594,
+        "este": 911.2453,
+        "cota": 3850.6345
+      }
+    ]
+  },
+  "libreta": {
+    "generada_por_validador": true,
+    "estaciones": [
+      {
+        "estacion": "BM-12",
+        "punto_atras": "BM-11",
+        "punto_visado": "E-1",
+        "angulo_horizontal": 262.844737,
+        "angulo_cenital": 89.750247,
+        "distancia_inclinada": 46.8024,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Estación inicial sobre pilar."
+      },
+      {
+        "estacion": "E-1",
+        "punto_atras": "BM-12",
+        "punto_visado": "E-2",
+        "angulo_horizontal": 181.701105,
+        "angulo_cenital": 89.415976,
+        "distancia_inclinada": 51.1999,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Cambio de instrumento por falla de batería. Se rehizo el estacionamiento."
+      },
+      {
+        "estacion": "E-2",
+        "punto_atras": "E-1",
+        "punto_visado": "BM-20",
+        "angulo_horizontal": 179.199751,
+        "angulo_cenital": 89.693239,
+        "distancia_inclinada": 48.4998,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Prisma sobre trípode."
+      },
+      {
+        "estacion": "BM-20",
+        "punto_atras": "E-2",
+        "punto_visado": "BM-21",
+        "angulo_horizontal": 95.09787,
+        "angulo_cenital": null,
+        "distancia_inclinada": null,
+        "altura_instrumento": null,
+        "altura_prisma": null,
+        "observaciones": ""
+      }
+    ]
+  },
+  "error_inducido": {
+    "tipo": "altura_instrumento",
+    "diagnostico_esperado": "altura_instrumento",
+    "estacion": "E-1",
+    "firma": {
+      "cierre_angular_dentro_tolerancia": true,
+      "cierre_lineal_dentro_tolerancia": true,
+      "cierre_cota_dentro_tolerancia": false,
+      "anomalia": "cota_desplazada_constante"
+    }
+  },
+  "solucion_referencia": {
+    "generada_por_validador": true,
+    "puntos": [
+      {
+        "id": "BM-12",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "E-1",
+        "norte": 962.3302,
+        "este": 972.2257,
+        "cota": 3850.186
+      },
+      {
+        "id": "E-2",
+        "norte": 922.0429,
+        "este": 940.6332,
+        "cota": 3850.6899
+      },
+      {
+        "id": "BM-20",
+        "norte": 883.4645,
+        "este": 911.2416,
+        "cota": 3850.9316
+      }
+    ],
+    "tramos": [
+      {
+        "azimut": 216.401724,
+        "distancia_horizontal": 46.8019,
+        "desnivel": 0.186
+      },
+      {
+        "azimut": 218.102829,
+        "distancia_horizontal": 51.1972,
+        "desnivel": 0.5039
+      },
+      {
+        "azimut": 217.30258,
+        "distancia_horizontal": 48.4991,
+        "desnivel": 0.2417
+      }
+    ],
+    "perimetro_m": 146.4982,
+    "azimut_cierre_calculado": 132.40045,
+    "error_angular_segundos": 1.62,
+    "error_lineal_m": 0.0063,
+    "error_norte_m": 0.0051,
+    "error_este_m": -0.0037,
+    "error_cota_m": 0.2971,
+    "relacion_cierre": 23243.5,
+    "uso_tolerancia": 5.941
+  }
+}

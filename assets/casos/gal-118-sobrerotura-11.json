@@ -1,0 +1,138 @@
+{
+  "schema_version": "1.0",
+  "identificacion": {
+    "id": "gal-118-sobrerotura-11",
+    "titulo": "Sobrerotura del avance — Galería 118 N",
+    "bloque": "D",
+    "orden": 11,
+    "tipo_ejercicio": "sobrerotura",
+    "andamiaje": "bajo"
+  },
+  "encargo": {
+    "labor": "Galería 118 N — avance de guardia",
+    "solicitante": "Jefe de Topografía",
+    "contexto": "Se levantaron secciones transversales cada 5 metros sobre los 25 metros avanzados en la guardia. La sección de diseño es de 4,00 m de ancho por 4,00 m de alto. El contratista solicita la valorización del avance.",
+    "objetivo": "Calcula el volumen excavado por el método de áreas medias, determina la sobrerotura respecto del diseño y decide qué informar."
+  },
+  "parametros": {
+    "unidad_angular": "grados_decimales",
+    "unidad_lineal": "metros",
+    "sistema_coordenadas": "local_mina",
+    "tolerancia": {
+      "sobrerotura_m": 0.1,
+      "fuente": "Estándar de la operación — PENDIENTE de validación por topógrafo de mina"
+    }
+  },
+  "decision": {
+    "correcta": "escalar",
+    "justificaciones": [
+      {
+        "id": "j1",
+        "texto": "La sobrerotura media supera la tolerancia del estándar y se concentra en un tramo identificable: debe informarse porque afecta al consumo de sostenimiento, al acarreo y a la dilución.",
+        "correcta": true
+      },
+      {
+        "id": "j2",
+        "texto": "El volumen excavado es mayor al de diseño, lo que significa mayor avance y debe valorizarse a favor del contratista.",
+        "correcta": false,
+        "tipo_distractor": "tecnicamente_falso"
+      },
+      {
+        "id": "j3",
+        "texto": "La diferencia entre volumen real y de diseño se compensa promediando con las guardias anteriores.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      },
+      {
+        "id": "j4",
+        "texto": "El fracturamiento del macizo explica la sobrerotura, por lo que no corresponde ninguna acción.",
+        "correcta": false,
+        "tipo_distractor": "cierto_pero_irrelevante"
+      }
+    ]
+  },
+  "consecuencia": {
+    "aceptar": {
+      "texto": "Valorizaste {{volumen_sobrerotura_m3}} m3 de sobrerotura como avance útil. Se pagó excavación no requerida y el sobreconsumo de shotcrete apareció después sin explicación.",
+      "impacto": "alto"
+    },
+    "compensar": {
+      "texto": "Promediaste con guardias anteriores. La señal de un problema de voladura o de sostenimiento quedó diluida en el promedio mensual.",
+      "impacto": "alto"
+    },
+    "repetir": {
+      "texto": "Mandaste a relevar las secciones. El resultado fue el mismo: la sobrerotura es real, no un error de medición.",
+      "impacto": "medio"
+    },
+    "escalar": {
+      "texto": "Informaste la sobrerotura de {{sobrerotura_lineal_media_m}} m media, con el tramo identificado. Perforación y voladura revisó la malla y geomecánica evaluó el sostenimiento del tramo fracturado.",
+      "impacto": "bajo"
+    }
+  },
+  "diagnostico": {
+    "que_habia": "Sobrerotura por encima de la tolerancia, concentrada en el tramo con fracturamiento visible.",
+    "por_que": "La sobrerotura tiene tres consecuencias que se pagan: más metros cúbicos de shotcrete y sostenimiento, más material estéril que acarrear, y dilución del mineral cuando ocurre en labores de producción. Por eso es un indicador de control, no un dato administrativo.",
+    "como_detectar": "Calcula el volumen por áreas medias y compáralo con el volumen de diseño del mismo tramo. Convierte la diferencia a sobrerotura lineal media dividiendo entre el perímetro de la sección y la longitud, para poder compararla con la tolerancia del estándar."
+  },
+  "metadatos": {
+    "autor": "equipo TopoLux",
+    "validado_por": "PENDIENTE — requiere topógrafo de mina",
+    "origen": "manual",
+    "estado": "borrador"
+  },
+  "secciones": {
+    "metodo": "areas_medias",
+    "seccion_diseno": {
+      "ancho_m": 4.0,
+      "alto_m": 4.0,
+      "area_m2": 16.0,
+      "perimetro_m": 16.0
+    },
+    "progresivas": [
+      {
+        "progresiva_m": 0.0,
+        "area_real_m2": 17.1
+      },
+      {
+        "progresiva_m": 5.0,
+        "area_real_m2": 18.4
+      },
+      {
+        "progresiva_m": 10.0,
+        "area_real_m2": 19.8
+      },
+      {
+        "progresiva_m": 15.0,
+        "area_real_m2": 20.6
+      },
+      {
+        "progresiva_m": 20.0,
+        "area_real_m2": 19.2
+      },
+      {
+        "progresiva_m": 25.0,
+        "area_real_m2": 18.1
+      }
+    ],
+    "observaciones": [
+      "Voladura ejecutada con malla estándar de la operación.",
+      "Progresivas 10 a 20 con presencia de fracturamiento visible en el techo."
+    ]
+  },
+  "solucion_referencia": {
+    "generada_por_validador": true,
+    "volumen_real_m3": 478.0,
+    "volumen_diseno_m3": 400.0,
+    "volumen_sobrerotura_m3": 78.0,
+    "longitud_m": 25.0,
+    "sobrerotura_lineal_media_m": 0.195
+  },
+  "error_inducido": {
+    "tipo": "sobrerotura_excedida",
+    "diagnostico_esperado": "sobrerotura_excedida",
+    "firma": {
+      "sobrerotura_dentro_tolerancia": false,
+      "anomalia": "sobrerotura_excedida"
+    }
+  }
+}

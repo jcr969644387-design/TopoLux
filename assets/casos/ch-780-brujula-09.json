@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.0",
+  "identificacion": {
+    "id": "ch-780-brujula-09",
+    "titulo": "Chimenea 780 — levantamiento con brújula",
+    "bloque": "C",
+    "orden": 9,
+    "tipo_ejercicio": "poligonal_abierta",
+    "andamiaje": "bajo"
+  },
+  "encargo": {
+    "labor": "Acceso a Chimenea 780 — Nivel 3850",
+    "solicitante": "Jefe de Topografía",
+    "contexto": "Labor angosta sin espacio para estación total en dos tramos. Se levantó con brújula de suspensión. El tramo intermedio tiene cerchas metálicas y tubería de aire comprimido.",
+    "objetivo": "Procesa la poligonal y decide si el levantamiento sirve para proyectar la chimenea."
+  },
+  "parametros": {
+    "unidad_angular": "grados_decimales",
+    "unidad_lineal": "metros",
+    "sistema_coordenadas": "local_mina",
+    "tolerancia": {
+      "angular_seg": 60.0,
+      "lineal_m": 0.0403,
+      "cota_m": 0.05,
+      "denominador": 3000,
+      "n_angulos": 4,
+      "fuente": "Estándar de la operación — PENDIENTE de validación por topógrafo de mina"
+    }
+  },
+  "decision": {
+    "correcta": "repetir",
+    "justificaciones": [
+      {
+        "id": "j1",
+        "texto": "El desvío aparece precisamente en los tramos con elementos metálicos próximos: la brújula no es confiable ahí y el tramo debe reobservarse con un método no magnético.",
+        "correcta": true
+      },
+      {
+        "id": "j2",
+        "texto": "El desvío se corrige aplicando la declinación magnética de la zona.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      },
+      {
+        "id": "j3",
+        "texto": "El error se compensa proporcionalmente porque afecta a dos estaciones consecutivas.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      },
+      {
+        "id": "j4",
+        "texto": "La labor es angosta, y en labores angostas la precisión siempre es menor.",
+        "correcta": false,
+        "tipo_distractor": "cierto_pero_irrelevante"
+      }
+    ]
+  },
+  "consecuencia": {
+    "aceptar": {
+      "texto": "Proyectaste la chimenea con {{error_lineal_m}} m de desviación. La chimenea no coincidió con la labor del nivel superior y hubo que ejecutar un tramo de conexión.",
+      "impacto": "alto"
+    },
+    "compensar": {
+      "texto": "Compensaste un desvío magnético concentrado en dos tramos. El error se repartió y quedó oculto en toda la poligonal.",
+      "impacto": "alto"
+    },
+    "repetir": {
+      "texto": "Se reobservó el tramo arrastrando poligonal desde el punto de control con estación total. La proyección de la chimenea quedó correcta.",
+      "impacto": "bajo"
+    },
+    "escalar": {
+      "texto": "Reportaste sin proponer solución. La respuesta fue la esperable: reobservar sin brújula.",
+      "impacto": "medio"
+    }
+  },
+  "diagnostico": {
+    "que_habia": "Desvío del azimut en los tramos observados con brújula junto a cerchas metálicas, tubería y riel.",
+    "por_que": "La brújula mide el campo magnético local. Cerchas, rieles, tuberías y mineralización ferromagnética lo alteran. Por eso el control subterráneo se arrastra con poligonal desde superficie o se orienta con giroteodolito, y la brújula queda para trabajos de detalle donde no hay metal cerca.",
+    "como_detectar": "El desvío aparece sólo en los tramos con metal próximo, y las notas de campo lo anuncian. Lee siempre las observaciones de la libreta antes de interpretar los números."
+  },
+  "metadatos": {
+    "autor": "equipo TopoLux",
+    "validado_por": "PENDIENTE — requiere topógrafo de mina",
+    "origen": "manual",
+    "estado": "borrador"
+  },
+  "control": {
+    "punto_arranque": {
+      "id": "BM-12",
+      "norte": 1000.0,
+      "este": 1000.0,
+      "cota": 3850.0
+    },
+    "punto_orientacion": {
+      "id": "BM-11",
+      "norte": 1042.18,
+      "este": 955.64,
+      "cota": 3849.12
+    },
+    "punto_cierre": {
+      "id": "BM-20",
+      "norte": 1084.4129,
+      "este": 1086.6791,
+      "cota": 3851.1298
+    },
+    "referencia_cierre": {
+      "id": "BM-21",
+      "azimut": 132.4
+    }
+  },
+  "diseno": {
+    "eje": [
+      {
+        "id": "D-0",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "D-1",
+        "norte": 1029.1174,
+        "este": 1030.6833,
+        "cota": 3850.423
+      },
+      {
+        "id": "D-2",
+        "norte": 1056.5068,
+        "este": 1057.8822,
+        "cota": 3850.809
+      },
+      {
+        "id": "D-3",
+        "norte": 1084.4129,
+        "este": 1086.6791,
+        "cota": 3851.1298
+      }
+    ]
+  },
+  "libreta": {
+    "generada_por_validador": true,
+    "estaciones": [
+      {
+        "estacion": "BM-12",
+        "punto_atras": "BM-11",
+        "punto_visado": "E-1",
+        "angulo_horizontal": 92.939957,
+        "angulo_cenital": 89.404789,
+        "distancia_inclinada": 42.3043,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Levantamiento con brújula de suspensión por falta de espacio."
+      },
+      {
+        "estacion": "E-1",
+        "punto_atras": "BM-12",
+        "punto_visado": "E-2",
+        "angulo_horizontal": 179.203786,
+        "angulo_cenital": 89.400608,
+        "distancia_inclinada": 38.5976,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Tramo con cerchas metálicas y tubería de aire comprimido."
+      },
+      {
+        "estacion": "E-2",
+        "punto_atras": "E-1",
+        "punto_visado": "BM-20",
+        "angulo_horizontal": 181.99374,
+        "angulo_cenital": 89.521582,
+        "distancia_inclinada": 40.0877,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Tramo con cerchas metálicas. Riel de scooptram a 2 m."
+      },
+      {
+        "estacion": "BM-20",
+        "punto_atras": "E-2",
+        "punto_visado": "BM-21",
+        "angulo_horizontal": 266.496848,
+        "angulo_cenital": null,
+        "distancia_inclinada": null,
+        "altura_instrumento": null,
+        "altura_prisma": null,
+        "observaciones": ""
+      }
+    ]
+  },
+  "error_inducido": {
+    "tipo": "brujula_ferromagnetica",
+    "diagnostico_esperado": "brujula_ferromagnetica",
+    "estacion": "E-1, E-2",
+    "firma": {
+      "cierre_angular_dentro_tolerancia": false,
+      "cierre_lineal_dentro_tolerancia": false,
+      "cierre_cota_dentro_tolerancia": true,
+      "anomalia": "desvio_en_tramos_metalicos"
+    }
+  },
+  "solucion_referencia": {
+    "generada_por_validador": true,
+    "puntos": [
+      {
+        "id": "BM-12",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "E-1",
+        "norte": 1029.1204,
+        "este": 1030.6832,
+        "cota": 3850.4215
+      },
+      {
+        "id": "E-2",
+        "norte": 1056.0757,
+        "este": 1058.306,
+        "cota": 3850.8072
+      },
+      {
+        "id": "BM-20",
+        "norte": 1083.0571,
+        "este": 1087.9525,
+        "cota": 3851.124
+      }
+    ],
+    "tramos": [
+      {
+        "azimut": 46.496943,
+        "distancia_horizontal": 42.302,
+        "desnivel": 0.4215
+      },
+      {
+        "azimut": 45.700729,
+        "distancia_horizontal": 38.5954,
+        "desnivel": 0.3858
+      },
+      {
+        "azimut": 47.694469,
+        "distancia_horizontal": 40.0863,
+        "desnivel": 0.3167
+      }
+    ],
+    "perimetro_m": 120.9837,
+    "azimut_cierre_calculado": 134.191317,
+    "error_angular_segundos": 6448.74,
+    "error_lineal_m": 1.8601,
+    "error_norte_m": -1.3558,
+    "error_este_m": 1.2734,
+    "error_cota_m": -0.0058,
+    "relacion_cierre": 65.0,
+    "uso_tolerancia": 107.479
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "schema_version": "1.0",
+  "casos": [
+    {
+      "id": "gal-118-limpio-01",
+      "titulo": "Arrastre de control — Galería 118 N",
+      "bloque": "A",
+      "orden": 1,
+      "tipo_ejercicio": "poligonal_abierta",
+      "andamiaje": "alto",
+      "error": "ninguno",
+      "decision": "aceptar"
+    },
+    {
+      "id": "gal-118-lectura-02",
+      "titulo": "Arrastre con lectura dudosa — Galería 118 N",
+      "bloque": "A",
+      "orden": 2,
+      "tipo_ejercicio": "poligonal_abierta",
+      "andamiaje": "alto",
+      "error": "error_lectura_angulo",
+      "decision": "repetir"
+    },
+    {
+      "id": "cx-220-limpio-03",
+      "titulo": "Poligonal de crucero — Cx 220 E",
+      "bloque": "A",
+      "orden": 3,
+      "tipo_ejercicio": "poligonal_abierta",
+      "andamiaje": "alto",
+      "error": "ninguno",
+      "decision": "compensar"
+    },
+    {
+      "id": "rp-340-cenital-04",
+      "titulo": "Rampa 340 — control de gradiente",
+      "bloque": "B",
+      "orden": 4,
+      "tipo_ejercicio": "poligonal_abierta",
+      "andamiaje": "medio",
+      "error": "confusion_cenital_vertical",
+      "decision": "repetir"
+    },
+    {
+      "id": "gal-455-altura-05",
+      "titulo": "Galería 455 S — control de avance mensual",
+      "bloque": "B",
+      "orden": 5,
+      "tipo_ejercicio": "poligonal_abierta",
+      "andamiaje": "medio",
+      "error": "altura_instrumento",
+      "decision": "repetir"
+    },
+    {
+      "id": "gal-118-orient-06",
+      "titulo": "Reinicio de arrastre — Galería 118 N",
+      "bloque": "B",
+      "orden": 6,
+      "tipo_ejercicio": "poligonal_abierta",
+      "andamiaje": "medio",
+      "error": "orientacion_inicial",
+      "decision": "escalar"
+    },
+    {
+      "id": "cx-220-prisma-07",
+      "titulo": "Crucero 220 E — verificación de equipo",
+      "bloque": "B",
+      "orden": 7,
+      "tipo_ejercicio": "poligonal_abierta",
+      "andamiaje": "medio",
+      "error": "distancia_sistematica",
+      "decision": "escalar"
+    },
+    {
+      "id": "gal-455-amarre-08",
+      "titulo": "Galería 455 S — amarre al control del nivel",
+      "bloque": "C",
+      "orden": 8,
+      "tipo_ejercicio": "poligonal_abierta",
+      "andamiaje": "bajo",
+      "error": "punto_amarre_incorrecto",
+      "decision": "escalar"
+    },
+    {
+      "id": "ch-780-brujula-09",
+      "titulo": "Chimenea 780 — levantamiento con brújula",
+      "bloque": "C",
+      "orden": 9,
+      "tipo_ejercicio": "poligonal_abierta",
+      "andamiaje": "bajo",
+      "error": "brujula_ferromagnetica",
+      "decision": "repetir"
+    },
+    {
+      "id": "cx-220-limite-10",
+      "titulo": "Crucero 220 E — cierre al límite",
+      "bloque": "C",
+      "orden": 10,
+      "tipo_ejercicio": "poligonal_abierta",
+      "andamiaje": "bajo",
+      "error": "ninguno",
+      "decision": "compensar"
+    },
+    {
+      "id": "gal-118-sobrerotura-11",
+      "titulo": "Sobrerotura del avance — Galería 118 N",
+      "bloque": "D",
+      "orden": 11,
+      "tipo_ejercicio": "sobrerotura",
+      "andamiaje": "bajo",
+      "error": "sobrerotura_excedida",
+      "decision": "escalar"
+    },
+    {
+      "id": "gal-118-replanteo-12",
+      "titulo": "Dar línea al frente — Galería 118 N",
+      "bloque": "D",
+      "orden": 12,
+      "tipo_ejercicio": "replanteo",
+      "andamiaje": "bajo",
+      "error": "ninguno",
+      "decision": "aceptar"
+    }
+  ]
+}

@@ -1,0 +1,282 @@
+{
+  "schema_version": "1.0",
+  "identificacion": {
+    "id": "cx-220-limite-10",
+    "titulo": "Crucero 220 E — cierre al límite",
+    "bloque": "C",
+    "orden": 10,
+    "tipo_ejercicio": "poligonal_abierta",
+    "andamiaje": "bajo"
+  },
+  "encargo": {
+    "labor": "Crucero 220 E — Nivel 3850",
+    "solicitante": "Jefe de Topografía",
+    "contexto": "Arrastre de rutina. La brigada reporta que una visual se tomó con el instrumento en una sola posición por falta de tiempo.",
+    "objetivo": "Procesa la poligonal y decide. Fíjate en la magnitud del error respecto de la tolerancia, no sólo en su existencia."
+  },
+  "parametros": {
+    "unidad_angular": "grados_decimales",
+    "unidad_lineal": "metros",
+    "sistema_coordenadas": "local_mina",
+    "tolerancia": {
+      "angular_seg": 67.082,
+      "lineal_m": 0.0751,
+      "cota_m": 0.05,
+      "denominador": 3000,
+      "n_angulos": 5,
+      "fuente": "Estándar de la operación — PENDIENTE de validación por topógrafo de mina"
+    }
+  },
+  "decision": {
+    "correcta": "compensar",
+    "justificaciones": [
+      {
+        "id": "j1",
+        "texto": "Los cierres, aunque no son despreciables, se mantienen dentro de la tolerancia del estándar: corresponde compensar y entregar, dejando constancia de la observación de campo.",
+        "correcta": true
+      },
+      {
+        "id": "j2",
+        "texto": "Cualquier error atribuible a una sola posición del instrumento obliga a reobservar.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      },
+      {
+        "id": "j3",
+        "texto": "El cierre supera la tolerancia y el trabajo debe rechazarse.",
+        "correcta": false,
+        "tipo_distractor": "tecnicamente_falso"
+      },
+      {
+        "id": "j4",
+        "texto": "Al estar dentro de tolerancia, las coordenadas pueden entregarse sin compensar.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      }
+    ]
+  },
+  "consecuencia": {
+    "aceptar": {
+      "texto": "Entregaste sin compensar. El residuo de {{error_lineal_m}} m quedó concentrado en el último punto en lugar de repartido.",
+      "impacto": "medio"
+    },
+    "compensar": {
+      "texto": "Compensaste y entregaste, dejando registrada la observación sobre la visual en una sola posición. El trabajo cumplió el estándar.",
+      "impacto": "bajo"
+    },
+    "repetir": {
+      "texto": "Rechazaste un trabajo que cumplía la tolerancia. La brigada perdió un turno y el crucero quedó sin control mientras tanto.",
+      "impacto": "medio"
+    },
+    "escalar": {
+      "texto": "Escalaste una decisión que estaba dentro de tus atribuciones. El jefe de topografía indicó compensar.",
+      "impacto": "medio"
+    }
+  },
+  "diagnostico": {
+    "que_habia": "Un error pequeño en la lectura angular de una estación, compatible con la visual tomada en una sola posición del instrumento.",
+    "por_que": "Medir en dos posiciones elimina errores instrumentales de colimación y de eje. Con una sola posición, esos errores quedan en la medición, aunque su magnitud suele mantenerse dentro de tolerancia en poligonales cortas.",
+    "como_detectar": "Lo importante aquí no es detectar el error, sino dimensionarlo. Un error existente que no supera la tolerancia no justifica reobservar: justifica compensar y dejar constancia."
+  },
+  "metadatos": {
+    "autor": "equipo TopoLux",
+    "validado_por": "PENDIENTE — requiere topógrafo de mina",
+    "origen": "manual",
+    "estado": "borrador"
+  },
+  "control": {
+    "punto_arranque": {
+      "id": "BM-12",
+      "norte": 1000.0,
+      "este": 1000.0,
+      "cota": 3850.0
+    },
+    "punto_orientacion": {
+      "id": "BM-11",
+      "norte": 1042.18,
+      "este": 955.64,
+      "cota": 3849.12
+    },
+    "punto_cierre": {
+      "id": "BM-20",
+      "norte": 1152.7121,
+      "este": 1165.4913,
+      "cota": 3851.2461
+    },
+    "referencia_cierre": {
+      "id": "BM-21",
+      "azimut": 132.4
+    }
+  },
+  "diseno": {
+    "eje": [
+      {
+        "id": "D-0",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "D-1",
+        "norte": 1040.1999,
+        "este": 1042.3619,
+        "cota": 3850.3504
+      },
+      {
+        "id": "D-2",
+        "norte": 1081.325,
+        "este": 1088.3577,
+        "cota": 3850.7206
+      },
+      {
+        "id": "D-3",
+        "norte": 1118.6851,
+        "este": 1129.1292,
+        "cota": 3850.9971
+      },
+      {
+        "id": "D-4",
+        "norte": 1152.7121,
+        "este": 1165.4913,
+        "cota": 3851.2461
+      }
+    ]
+  },
+  "libreta": {
+    "generada_por_validador": true,
+    "estaciones": [
+      {
+        "estacion": "BM-12",
+        "punto_atras": "BM-11",
+        "punto_visado": "E-1",
+        "angulo_horizontal": 92.942375,
+        "angulo_cenital": 89.638124,
+        "distancia_inclinada": 58.4067,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Sin novedad."
+      },
+      {
+        "estacion": "E-1",
+        "punto_atras": "BM-12",
+        "punto_visado": "E-2",
+        "angulo_horizontal": 181.711954,
+        "angulo_cenital": 89.637509,
+        "distancia_inclinada": 61.702,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Visual tomada en una sola posición del instrumento por falta de tiempo."
+      },
+      {
+        "estacion": "E-2",
+        "punto_atras": "E-1",
+        "punto_visado": "E-3",
+        "angulo_horizontal": 179.300174,
+        "angulo_cenital": 89.695833,
+        "distancia_inclinada": 55.2999,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Sin novedad."
+      },
+      {
+        "estacion": "E-3",
+        "punto_atras": "E-2",
+        "punto_visado": "BM-20",
+        "angulo_horizontal": 179.401656,
+        "angulo_cenital": 89.693681,
+        "distancia_inclinada": 49.8072,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Prisma sobre trípode."
+      },
+      {
+        "estacion": "BM-20",
+        "punto_atras": "E-3",
+        "punto_visado": "BM-21",
+        "angulo_horizontal": 265.500658,
+        "angulo_cenital": null,
+        "distancia_inclinada": null,
+        "altura_instrumento": null,
+        "altura_prisma": null,
+        "observaciones": ""
+      }
+    ]
+  },
+  "error_inducido": {
+    "tipo": "error_lectura_angulo",
+    "diagnostico_esperado": "ninguno",
+    "estacion": "E-1",
+    "firma": {
+      "cierre_angular_dentro_tolerancia": true,
+      "cierre_lineal_dentro_tolerancia": true,
+      "cierre_cota_dentro_tolerancia": true,
+      "anomalia": "ninguna"
+    }
+  },
+  "solucion_referencia": {
+    "generada_por_validador": true,
+    "puntos": [
+      {
+        "id": "BM-12",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "E-1",
+        "norte": 1040.2042,
+        "este": 1042.3654,
+        "cota": 3850.3509
+      },
+      {
+        "id": "E-2",
+        "norte": 1081.3207,
+        "este": 1088.37,
+        "cota": 3850.7233
+      },
+      {
+        "id": "E-3",
+        "norte": 1118.672,
+        "este": 1129.1482,
+        "cota": 3850.9988
+      },
+      {
+        "id": "BM-20",
+        "norte": 1152.6951,
+        "este": 1165.5228,
+        "cota": 3851.2471
+      }
+    ],
+    "tramos": [
+      {
+        "azimut": 46.499362,
+        "distancia_horizontal": 58.4055,
+        "desnivel": 0.3509
+      },
+      {
+        "azimut": 48.211315,
+        "distancia_horizontal": 61.7007,
+        "desnivel": 0.3724
+      },
+      {
+        "azimut": 47.511489,
+        "distancia_horizontal": 55.2991,
+        "desnivel": 0.2756
+      },
+      {
+        "azimut": 46.913146,
+        "distancia_horizontal": 49.8065,
+        "desnivel": 0.2483
+      }
+    ],
+    "perimetro_m": 225.2118,
+    "azimut_cierre_calculado": 132.413804,
+    "error_angular_segundos": 49.69,
+    "error_lineal_m": 0.0359,
+    "error_norte_m": -0.017,
+    "error_este_m": 0.0316,
+    "error_cota_m": 0.001,
+    "relacion_cierre": 6275.5,
+    "uso_tolerancia": 0.741
+  }
+}

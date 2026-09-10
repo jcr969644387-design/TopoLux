@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.0",
+  "identificacion": {
+    "id": "rp-340-cenital-04",
+    "titulo": "Rampa 340 — control de gradiente",
+    "bloque": "B",
+    "orden": 4,
+    "tipo_ejercicio": "poligonal_abierta",
+    "andamiaje": "medio"
+  },
+  "encargo": {
+    "labor": "Rampa 340 — acceso a Nivel 3820",
+    "solicitante": "Jefe de Topografía",
+    "contexto": "Control topográfico de la rampa de acceso. La gradiente es crítica: la rampa debe bajar de forma continua para que los equipos de bajo perfil puedan transitar cargados.",
+    "objetivo": "Procesa la poligonal, verifica planimetría y cota, y decide si el control de gradiente es utilizable."
+  },
+  "parametros": {
+    "unidad_angular": "grados_decimales",
+    "unidad_lineal": "metros",
+    "sistema_coordenadas": "local_mina",
+    "tolerancia": {
+      "angular_seg": 60.0,
+      "lineal_m": 0.0478,
+      "cota_m": 0.05,
+      "denominador": 3000,
+      "n_angulos": 4,
+      "fuente": "Estándar de la operación — PENDIENTE de validación por topógrafo de mina"
+    }
+  },
+  "decision": {
+    "correcta": "repetir",
+    "justificaciones": [
+      {
+        "id": "j1",
+        "texto": "La planimetría cierra correctamente pero la cota queda fuera de tolerancia con el desnivel invertido en un tramo: el dato vertical no es recuperable en gabinete.",
+        "correcta": true
+      },
+      {
+        "id": "j2",
+        "texto": "El error de cota se corrige aplicando la corrección por curvatura y refracción.",
+        "correcta": false,
+        "tipo_distractor": "tecnicamente_falso"
+      },
+      {
+        "id": "j3",
+        "texto": "Como la planimetría cierra, el levantamiento se acepta y la cota se interpola.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      },
+      {
+        "id": "j4",
+        "texto": "La rampa tiene fuerte pendiente, y a mayor pendiente mayor error de distancia inclinada.",
+        "correcta": false,
+        "tipo_distractor": "cierto_pero_irrelevante"
+      }
+    ]
+  },
+  "consecuencia": {
+    "aceptar": {
+      "texto": "Entregaste un control con la cota errada en {{error_cota_m}} m. La gradiente replanteada dejó un tramo contrapendiente y la rampa acumuló agua en la curva.",
+      "impacto": "alto"
+    },
+    "compensar": {
+      "texto": "Compensaste un desnivel invertido. La compensación repartió un disparate entre todos los tramos y ninguna cota quedó utilizable.",
+      "impacto": "alto"
+    },
+    "repetir": {
+      "texto": "La brigada reobservó el tramo. Se confirmó que la lectura vertical estaba mal anotada y el control de gradiente quedó correcto.",
+      "impacto": "bajo"
+    },
+    "escalar": {
+      "texto": "Reportaste sin resolver. La respuesta fue reobservar, que era la decisión disponible desde el inicio.",
+      "impacto": "medio"
+    }
+  },
+  "diagnostico": {
+    "que_habia": "En la estación señalada se anotó el ángulo vertical donde la libreta pedía el ángulo cenital, con el complemento tomado al revés.",
+    "por_que": "La estación total puede configurarse para entregar ángulo cenital (desde el cenit) o vertical (desde la horizontal). Al cambiar de equipo o de configuración, la confusión es frecuente, y en visuales muy inclinadas el efecto es grande.",
+    "como_detectar": "Firma inconfundible: la distancia horizontal y toda la planimetría quedan intactas, porque el seno del ángulo no cambia, pero el desnivel aparece con el signo invertido."
+  },
+  "metadatos": {
+    "autor": "equipo TopoLux",
+    "validado_por": "PENDIENTE — requiere topógrafo de mina",
+    "origen": "manual",
+    "estado": "borrador"
+  },
+  "control": {
+    "punto_arranque": {
+      "id": "BM-12",
+      "norte": 1000.0,
+      "este": 1000.0,
+      "cota": 3850.0
+    },
+    "punto_orientacion": {
+      "id": "BM-11",
+      "norte": 1042.18,
+      "este": 955.64,
+      "cota": 3849.12
+    },
+    "punto_cierre": {
+      "id": "BM-20",
+      "norte": 1093.1984,
+      "este": 1108.8167,
+      "cota": 3833.013
+    },
+    "referencia_cierre": {
+      "id": "BM-21",
+      "azimut": 132.4
+    }
+  },
+  "diseno": {
+    "eje": [
+      {
+        "id": "D-0",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "D-1",
+        "norte": 1035.3126,
+        "este": 1037.2117,
+        "cota": 3843.844
+      },
+      {
+        "id": "D-2",
+        "norte": 1066.23,
+        "este": 1073.7975,
+        "cota": 3838.096
+      },
+      {
+        "id": "D-3",
+        "norte": 1093.1984,
+        "este": 1108.8167,
+        "cota": 3833.013
+      }
+    ]
+  },
+  "libreta": {
+    "generada_por_validador": true,
+    "estaciones": [
+      {
+        "estacion": "BM-12",
+        "punto_atras": "BM-11",
+        "punto_visado": "E-1",
+        "angulo_horizontal": 92.942139,
+        "angulo_cenital": 96.823709,
+        "distancia_inclinada": 51.6667,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Estación al inicio de la rampa."
+      },
+      {
+        "estacion": "E-1",
+        "punto_atras": "BM-12",
+        "punto_visado": "E-2",
+        "angulo_horizontal": 183.299604,
+        "angulo_cenital": 83.178411,
+        "distancia_inclinada": 48.242,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Fuerte pendiente descendente. Visuales muy inclinadas."
+      },
+      {
+        "estacion": "E-2",
+        "punto_atras": "E-1",
+        "punto_visado": "BM-20",
+        "angulo_horizontal": 182.600082,
+        "angulo_cenital": 96.537266,
+        "distancia_inclinada": 44.4906,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Prisma sobre bastón con bípode."
+      },
+      {
+        "estacion": "BM-20",
+        "punto_atras": "E-2",
+        "punto_visado": "BM-21",
+        "angulo_horizontal": 260.000834,
+        "angulo_cenital": null,
+        "distancia_inclinada": null,
+        "altura_instrumento": null,
+        "altura_prisma": null,
+        "observaciones": ""
+      }
+    ]
+  },
+  "error_inducido": {
+    "tipo": "confusion_cenital_vertical",
+    "diagnostico_esperado": "confusion_cenital_vertical",
+    "estacion": "E-1",
+    "firma": {
+      "cierre_angular_dentro_tolerancia": true,
+      "cierre_lineal_dentro_tolerancia": true,
+      "cierre_cota_dentro_tolerancia": false,
+      "anomalia": "desnivel_invertido"
+    }
+  },
+  "solucion_referencia": {
+    "generada_por_validador": true,
+    "puntos": [
+      {
+        "id": "BM-12",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "E-1",
+        "norte": 1035.3137,
+        "este": 1037.2117,
+        "cota": 3843.8432
+      },
+      {
+        "id": "E-2",
+        "norte": 1066.2322,
+        "este": 1073.7972,
+        "cota": 3849.5553
+      },
+      {
+        "id": "BM-20",
+        "norte": 1093.2021,
+        "este": 1108.8169,
+        "cota": 3844.4721
+      }
+    ],
+    "tramos": [
+      {
+        "azimut": 46.499126,
+        "distancia_horizontal": 51.3007,
+        "desnivel": -6.1568
+      },
+      {
+        "azimut": 49.79873,
+        "distancia_horizontal": 47.9005,
+        "desnivel": 5.7121
+      },
+      {
+        "azimut": 52.398812,
+        "distancia_horizontal": 44.2013,
+        "desnivel": -5.0832
+      }
+    ],
+    "perimetro_m": 143.4025,
+    "azimut_cierre_calculado": 132.399646,
+    "error_angular_segundos": -1.28,
+    "error_lineal_m": 0.0037,
+    "error_norte_m": 0.0037,
+    "error_este_m": 0.0001,
+    "error_cota_m": 11.4591,
+    "relacion_cierre": 38668.5,
+    "uso_tolerancia": 229.182
+  }
+}

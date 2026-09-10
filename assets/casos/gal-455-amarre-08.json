@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.0",
+  "identificacion": {
+    "id": "gal-455-amarre-08",
+    "titulo": "Galería 455 S — amarre al control del nivel",
+    "bloque": "C",
+    "orden": 8,
+    "tipo_ejercicio": "poligonal_abierta",
+    "andamiaje": "bajo"
+  },
+  "encargo": {
+    "labor": "Galería 455 S — Nivel 3850",
+    "solicitante": "Jefe de Topografía",
+    "contexto": "El plano de control del nivel tiene dos puntos con nomenclatura similar, monumentados en campañas distintas. La brigada tomó las coordenadas del plano antiguo.",
+    "objetivo": "Procesa la poligonal, interpreta el resultado y decide."
+  },
+  "parametros": {
+    "unidad_angular": "grados_decimales",
+    "unidad_lineal": "metros",
+    "sistema_coordenadas": "local_mina",
+    "tolerancia": {
+      "angular_seg": 60.0,
+      "lineal_m": 0.0488,
+      "cota_m": 0.05,
+      "denominador": 3000,
+      "n_angulos": 4,
+      "fuente": "Estándar de la operación — PENDIENTE de validación por topógrafo de mina"
+    }
+  },
+  "decision": {
+    "correcta": "escalar",
+    "justificaciones": [
+      {
+        "id": "j1",
+        "texto": "El cierre angular es correcto y el error lineal es un desplazamiento constante, sin relación con la longitud: la poligonal está bien medida pero arrancó de coordenadas equivocadas, lo que compromete otros trabajos amarrados al mismo punto.",
+        "correcta": true
+      },
+      {
+        "id": "j2",
+        "texto": "Un desplazamiento constante con angular correcto indica error sistemático de distancias.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      },
+      {
+        "id": "j3",
+        "texto": "El desplazamiento se elimina compensando el cierre lineal entre los tramos.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      },
+      {
+        "id": "j4",
+        "texto": "El levantamiento debe repetirse íntegramente porque las coordenadas calculadas no sirven.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      }
+    ]
+  },
+  "consecuencia": {
+    "aceptar": {
+      "texto": "Entregaste coordenadas desplazadas {{error_lineal_m}} m. Todo lo replanteado desde ese arrastre quedó corrido, incluidas las labores de otra brigada.",
+      "impacto": "alto"
+    },
+    "compensar": {
+      "texto": "Compensaste un desplazamiento del origen. La forma de la poligonal se deformó y ahora ni siquiera las distancias relativas son correctas.",
+      "impacto": "alto"
+    },
+    "repetir": {
+      "texto": "Mandaste a repetir mediciones que eran correctas. El error no estaba en el campo, estaba en el plano: la repetición dio el mismo desplazamiento.",
+      "impacto": "medio"
+    },
+    "escalar": {
+      "texto": "Reportaste la discrepancia de coordenadas del punto de amarre. Se verificó el plano vigente, se recalculó desde las coordenadas correctas y se revisaron los demás trabajos del nivel.",
+      "impacto": "bajo"
+    }
+  },
+  "diagnostico": {
+    "que_habia": "Las coordenadas del punto de arranque no corresponden al punto de control vigente: hay un desplazamiento constante en planta.",
+    "por_que": "Convivencia de planos de campañas distintas con nomenclatura parecida. Es un error de gabinete, no de campo, y por eso todas las mediciones son correctas.",
+    "como_detectar": "Cierre angular correcto y error lineal constante, independiente de la longitud recorrida. Compáralo con el error sistemático de distancias, que sí crece con la longitud."
+  },
+  "metadatos": {
+    "autor": "equipo TopoLux",
+    "validado_por": "PENDIENTE — requiere topógrafo de mina",
+    "origen": "manual",
+    "estado": "borrador"
+  },
+  "control": {
+    "punto_arranque": {
+      "id": "BM-12",
+      "norte": 996.6,
+      "este": 1002.1,
+      "cota": 3850.0
+    },
+    "punto_orientacion": {
+      "id": "BM-11",
+      "norte": 1038.78,
+      "este": 957.74,
+      "cota": 3849.12
+    },
+    "punto_cierre": {
+      "id": "BM-20",
+      "norte": 883.4594,
+      "este": 911.2453,
+      "cota": 3850.6345
+    },
+    "referencia_cierre": {
+      "id": "BM-21",
+      "azimut": 132.4
+    }
+  },
+  "diseno": {
+    "eje": [
+      {
+        "id": "D-0",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "D-1",
+        "norte": 962.331,
+        "este": 972.228,
+        "cota": 3850.1872
+      },
+      {
+        "id": "D-2",
+        "norte": 922.0399,
+        "este": 940.6358,
+        "cota": 3850.392
+      },
+      {
+        "id": "D-3",
+        "norte": 883.4594,
+        "este": 911.2453,
+        "cota": 3850.6345
+      }
+    ]
+  },
+  "libreta": {
+    "generada_por_validador": true,
+    "estaciones": [
+      {
+        "estacion": "BM-12",
+        "punto_atras": "BM-11",
+        "punto_visado": "E-1",
+        "angulo_horizontal": 262.842654,
+        "angulo_cenital": 89.749106,
+        "distancia_inclinada": 46.8022,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Coordenadas de arranque tomadas del plano de control disponible en campo."
+      },
+      {
+        "estacion": "E-1",
+        "punto_atras": "BM-12",
+        "punto_visado": "E-2",
+        "angulo_horizontal": 181.69944,
+        "angulo_cenital": 89.749406,
+        "distancia_inclinada": 51.2001,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Sin novedad."
+      },
+      {
+        "estacion": "E-2",
+        "punto_atras": "E-1",
+        "punto_visado": "BM-20",
+        "angulo_horizontal": 179.200635,
+        "angulo_cenital": 89.691245,
+        "distancia_inclinada": 48.5038,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Prisma sobre trípode."
+      },
+      {
+        "estacion": "BM-20",
+        "punto_atras": "E-2",
+        "punto_visado": "BM-21",
+        "angulo_horizontal": 95.101618,
+        "angulo_cenital": null,
+        "distancia_inclinada": null,
+        "altura_instrumento": null,
+        "altura_prisma": null,
+        "observaciones": ""
+      }
+    ]
+  },
+  "error_inducido": {
+    "tipo": "punto_amarre_incorrecto",
+    "diagnostico_esperado": "punto_amarre_incorrecto",
+    "estacion": null,
+    "firma": {
+      "cierre_angular_dentro_tolerancia": true,
+      "cierre_lineal_dentro_tolerancia": false,
+      "cierre_cota_dentro_tolerancia": true,
+      "anomalia": "desplazamiento_constante"
+    }
+  },
+  "solucion_referencia": {
+    "generada_por_validador": true,
+    "puntos": [
+      {
+        "id": "BM-12",
+        "norte": 996.6,
+        "este": 1002.1,
+        "cota": 3850.0
+      },
+      {
+        "id": "E-1",
+        "norte": 958.9294,
+        "este": 974.3272,
+        "cota": 3850.1869
+      },
+      {
+        "id": "E-2",
+        "norte": 918.6381,
+        "este": 942.7359,
+        "cota": 3850.3929
+      },
+      {
+        "id": "BM-20",
+        "norte": 880.0551,
+        "este": 913.3438,
+        "cota": 3850.6363
+      }
+    ],
+    "tramos": [
+      {
+        "azimut": 216.39964,
+        "distancia_horizontal": 46.8017,
+        "desnivel": 0.1869
+      },
+      {
+        "azimut": 218.09908,
+        "distancia_horizontal": 51.1996,
+        "desnivel": 0.2059
+      },
+      {
+        "azimut": 217.299715,
+        "distancia_horizontal": 48.5031,
+        "desnivel": 0.2434
+      }
+    ],
+    "perimetro_m": 146.5044,
+    "azimut_cierre_calculado": 132.401333,
+    "error_angular_segundos": 4.8,
+    "error_lineal_m": 3.9991,
+    "error_norte_m": -3.4043,
+    "error_este_m": 2.0984,
+    "error_cota_m": 0.0018,
+    "relacion_cierre": 36.6,
+    "uso_tolerancia": 81.891
+  }
+}

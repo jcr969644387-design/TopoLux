@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.0",
+  "identificacion": {
+    "id": "gal-118-orient-06",
+    "titulo": "Reinicio de arrastre — Galería 118 N",
+    "bloque": "B",
+    "orden": 6,
+    "tipo_ejercicio": "poligonal_abierta",
+    "andamiaje": "medio"
+  },
+  "encargo": {
+    "labor": "Galería 118 N — Nivel 3850",
+    "solicitante": "Jefe de Topografía",
+    "contexto": "La brigada retomó el arrastre tras una parada de guardia. Hay dos puntos de control cerca de la bocamina, BM-11 y BM-13, con monumentación parecida.",
+    "objetivo": "Procesa la poligonal y decide qué hacer con el trabajo."
+  },
+  "parametros": {
+    "unidad_angular": "grados_decimales",
+    "unidad_lineal": "metros",
+    "sistema_coordenadas": "local_mina",
+    "tolerancia": {
+      "angular_seg": 60.0,
+      "lineal_m": 0.0486,
+      "cota_m": 0.05,
+      "denominador": 3000,
+      "n_angulos": 4,
+      "fuente": "Estándar de la operación — PENDIENTE de validación por topógrafo de mina"
+    }
+  },
+  "decision": {
+    "correcta": "escalar",
+    "justificaciones": [
+      {
+        "id": "j1",
+        "texto": "La poligonal conserva su forma y todas las distancias, pero aparece girada un valor constante: es un problema de orientación que se recalcula en gabinete, sin volver a campo, y debe informarse porque afecta a todo lo replanteado desde ese arrastre.",
+        "correcta": true
+      },
+      {
+        "id": "j2",
+        "texto": "La forma correcta y el giro constante indican error de lectura en la última estación.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      },
+      {
+        "id": "j3",
+        "texto": "Debe reobservarse toda la poligonal porque el giro no es recuperable.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      },
+      {
+        "id": "j4",
+        "texto": "El giro se elimina aplicando la convergencia de meridianos del sistema UTM.",
+        "correcta": false,
+        "tipo_distractor": "tecnicamente_falso"
+      }
+    ]
+  },
+  "consecuencia": {
+    "aceptar": {
+      "texto": "Entregaste una poligonal girada. El frente recibió línea con {{error_lineal_m}} m de desviación y el crucero no intersectó la estructura proyectada.",
+      "impacto": "alto"
+    },
+    "compensar": {
+      "texto": "Compensar no elimina un giro: repartiste entre los tramos un error que está en el origen. Las coordenadas quedaron peor que sin compensar.",
+      "impacto": "alto"
+    },
+    "repetir": {
+      "texto": "Mandaste a la brigada a repetir un trabajo cuyas mediciones eran correctas. Un turno perdido para corregir algo que se resolvía en gabinete.",
+      "impacto": "medio"
+    },
+    "escalar": {
+      "texto": "Reportaste el problema de orientación. Se recalculó con el azimut correcto sin volver a campo y se revisaron los replanteos derivados.",
+      "impacto": "bajo"
+    }
+  },
+  "diagnostico": {
+    "que_habia": "La orientación inicial se tomó a un punto de control distinto del declarado, lo que gira toda la poligonal un valor constante.",
+    "por_que": "Con varios puntos de control monumentados de forma parecida cerca de la bocamina, tomar el punto equivocado es un error clásico, y no deja ninguna huella en las mediciones: todas son correctas.",
+    "como_detectar": "Firma característica: las distancias entre puntos consecutivos son correctas y la forma de la poligonal es exacta, pero está girada. Si el error fuera de lectura en una estación intermedia, sólo giraría el tramo posterior a esa estación, no el conjunto."
+  },
+  "metadatos": {
+    "autor": "equipo TopoLux",
+    "validado_por": "PENDIENTE — requiere topógrafo de mina",
+    "origen": "manual",
+    "estado": "borrador"
+  },
+  "control": {
+    "punto_arranque": {
+      "id": "BM-12",
+      "norte": 1000.0,
+      "este": 1000.0,
+      "cota": 3850.0
+    },
+    "punto_orientacion": {
+      "id": "BM-11",
+      "norte": 1042.18,
+      "este": 955.64,
+      "cota": 3849.12
+    },
+    "punto_cierre": {
+      "id": "BM-20",
+      "norte": 1099.7208,
+      "este": 1106.2255,
+      "cota": 3850.6836
+    },
+    "referencia_cierre": {
+      "id": "BM-21",
+      "azimut": 132.4
+    }
+  },
+  "diseno": {
+    "eje": [
+      {
+        "id": "D-0",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "D-1",
+        "norte": 1033.1787,
+        "este": 1034.963,
+        "cota": 3850.241
+      },
+      {
+        "id": "D-2",
+        "norte": 1068.9846,
+        "este": 1073.4948,
+        "cota": 3850.504
+      },
+      {
+        "id": "D-3",
+        "norte": 1099.7208,
+        "este": 1106.2255,
+        "cota": 3850.6836
+      }
+    ]
+  },
+  "libreta": {
+    "generada_por_validador": true,
+    "estaciones": [
+      {
+        "estacion": "BM-12",
+        "punto_atras": "BM-11",
+        "punto_visado": "E-1",
+        "angulo_horizontal": 95.693683,
+        "angulo_cenital": 89.69251,
+        "distancia_inclinada": 48.2007,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Orientación tomada al punto de control cercano a la bocamina."
+      },
+      {
+        "estacion": "E-1",
+        "punto_atras": "BM-12",
+        "punto_visado": "E-2",
+        "angulo_horizontal": 180.600754,
+        "angulo_cenital": 89.693854,
+        "distancia_inclinada": 52.6037,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Sin novedad."
+      },
+      {
+        "estacion": "E-2",
+        "punto_atras": "E-1",
+        "punto_visado": "BM-20",
+        "angulo_horizontal": 179.698935,
+        "angulo_cenital": 89.747339,
+        "distancia_inclinada": 44.902,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Prisma sobre trípode."
+      },
+      {
+        "estacion": "BM-20",
+        "punto_atras": "E-2",
+        "punto_visado": "BM-21",
+        "angulo_horizontal": 265.599638,
+        "angulo_cenital": null,
+        "distancia_inclinada": null,
+        "altura_instrumento": null,
+        "altura_prisma": null,
+        "observaciones": ""
+      }
+    ]
+  },
+  "error_inducido": {
+    "tipo": "orientacion_inicial",
+    "diagnostico_esperado": "orientacion_inicial",
+    "estacion": null,
+    "firma": {
+      "cierre_angular_dentro_tolerancia": false,
+      "cierre_lineal_dentro_tolerancia": false,
+      "cierre_cota_dentro_tolerancia": true,
+      "anomalia": "rotacion_total"
+    }
+  },
+  "solucion_referencia": {
+    "generada_por_validador": true,
+    "puntos": [
+      {
+        "id": "BM-12",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "E-1",
+        "norte": 1031.4626,
+        "este": 1036.515,
+        "cota": 3850.2407
+      },
+      {
+        "id": "E-2",
+        "norte": 1065.3795,
+        "este": 1076.7234,
+        "cota": 3850.5038
+      },
+      {
+        "id": "BM-20",
+        "norte": 1094.5108,
+        "este": 1110.8925,
+        "cota": 3850.6838
+      }
+    ],
+    "tramos": [
+      {
+        "azimut": 49.250669,
+        "distancia_horizontal": 48.2,
+        "desnivel": 0.2407
+      },
+      {
+        "azimut": 49.851424,
+        "distancia_horizontal": 52.603,
+        "desnivel": 0.2631
+      },
+      {
+        "azimut": 49.550358,
+        "distancia_horizontal": 44.9016,
+        "desnivel": 0.18
+      }
+    ],
+    "perimetro_m": 145.7046,
+    "azimut_cierre_calculado": 135.149997,
+    "error_angular_segundos": 9899.99,
+    "error_lineal_m": 6.9946,
+    "error_norte_m": -5.21,
+    "error_este_m": 4.667,
+    "error_cota_m": 0.0002,
+    "relacion_cierre": 20.8,
+    "uso_tolerancia": 165.0
+  }
+}

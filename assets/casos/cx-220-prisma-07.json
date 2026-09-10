@@ -1,0 +1,282 @@
+{
+  "schema_version": "1.0",
+  "identificacion": {
+    "id": "cx-220-prisma-07",
+    "titulo": "Crucero 220 E — verificación de equipo",
+    "bloque": "B",
+    "orden": 7,
+    "tipo_ejercicio": "poligonal_abierta",
+    "andamiaje": "medio"
+  },
+  "encargo": {
+    "labor": "Crucero 220 E — Nivel 3850",
+    "solicitante": "Jefe de Topografía",
+    "contexto": "Primer trabajo tras el retorno del instrumento de mantenimiento. Se usó un prisma de repuesto de otro modelo.",
+    "objetivo": "Procesa la poligonal y decide qué hacer con el levantamiento y con el equipo."
+  },
+  "parametros": {
+    "unidad_angular": "grados_decimales",
+    "unidad_lineal": "metros",
+    "sistema_coordenadas": "local_mina",
+    "tolerancia": {
+      "angular_seg": 67.082,
+      "lineal_m": 0.0751,
+      "cota_m": 0.05,
+      "denominador": 3000,
+      "n_angulos": 5,
+      "fuente": "Estándar de la operación — PENDIENTE de validación por topógrafo de mina"
+    }
+  },
+  "decision": {
+    "correcta": "escalar",
+    "justificaciones": [
+      {
+        "id": "j1",
+        "texto": "El cierre angular es correcto y el error lineal se acumula de forma proporcional a la longitud: apunta a un error sistemático de distancias que afecta a todos los trabajos hechos con ese equipo, no sólo a este.",
+        "correcta": true
+      },
+      {
+        "id": "j2",
+        "texto": "El error lineal proporcional se debe a errores accidentales acumulados y se resuelve compensando.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      },
+      {
+        "id": "j3",
+        "texto": "El cierre angular correcto demuestra que el levantamiento es válido.",
+        "correcta": false,
+        "tipo_distractor": "tecnicamente_falso"
+      },
+      {
+        "id": "j4",
+        "texto": "El instrumento retornó de mantenimiento, por lo que sus mediciones están certificadas.",
+        "correcta": false,
+        "tipo_distractor": "cierto_pero_irrelevante"
+      }
+    ]
+  },
+  "consecuencia": {
+    "aceptar": {
+      "texto": "Entregaste el trabajo. El error de {{error_lineal_m}} m se propagó y, peor, el equipo siguió midiendo con la constante equivocada durante todo el mes.",
+      "impacto": "alto"
+    },
+    "compensar": {
+      "texto": "Compensaste un error sistemático como si fuera accidental. Ocultaste el síntoma y el equipo siguió descalibrado.",
+      "impacto": "alto"
+    },
+    "repetir": {
+      "texto": "Reobservaste con el mismo equipo y el mismo prisma. El error se repitió idéntico: un turno perdido sin resolver nada.",
+      "impacto": "medio"
+    },
+    "escalar": {
+      "texto": "Reportaste la sospecha de constante de prisma. Se verificó en base calibrada, se corrigió la configuración y se revisaron los trabajos del período.",
+      "impacto": "bajo"
+    }
+  },
+  "diagnostico": {
+    "que_habia": "Un error sistemático constante en cada distancia medida, compatible con una constante de prisma mal configurada en el instrumento.",
+    "por_que": "Cada modelo de prisma tiene su propia constante. Al usar un prisma de repuesto sin actualizar la configuración, cada distancia sale desplazada siempre en el mismo sentido y la misma magnitud.",
+    "como_detectar": "Cierre angular correcto (los ángulos no se ven afectados) junto a un error lineal que crece con el número de tramos y la longitud total. El error sistemático se acumula; el accidental se compensa entre sí."
+  },
+  "metadatos": {
+    "autor": "equipo TopoLux",
+    "validado_por": "PENDIENTE — requiere topógrafo de mina",
+    "origen": "manual",
+    "estado": "borrador"
+  },
+  "control": {
+    "punto_arranque": {
+      "id": "BM-12",
+      "norte": 1000.0,
+      "este": 1000.0,
+      "cota": 3850.0
+    },
+    "punto_orientacion": {
+      "id": "BM-11",
+      "norte": 1042.18,
+      "este": 955.64,
+      "cota": 3849.12
+    },
+    "punto_cierre": {
+      "id": "BM-20",
+      "norte": 1152.7121,
+      "este": 1165.4913,
+      "cota": 3851.2461
+    },
+    "referencia_cierre": {
+      "id": "BM-21",
+      "azimut": 132.4
+    }
+  },
+  "diseno": {
+    "eje": [
+      {
+        "id": "D-0",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "D-1",
+        "norte": 1040.1999,
+        "este": 1042.3619,
+        "cota": 3850.3504
+      },
+      {
+        "id": "D-2",
+        "norte": 1081.325,
+        "este": 1088.3577,
+        "cota": 3850.7206
+      },
+      {
+        "id": "D-3",
+        "norte": 1118.6851,
+        "este": 1129.1292,
+        "cota": 3850.9971
+      },
+      {
+        "id": "D-4",
+        "norte": 1152.7121,
+        "este": 1165.4913,
+        "cota": 3851.2461
+      }
+    ]
+  },
+  "libreta": {
+    "generada_por_validador": true,
+    "estaciones": [
+      {
+        "estacion": "BM-12",
+        "punto_atras": "BM-11",
+        "punto_visado": "E-1",
+        "angulo_horizontal": 92.943201,
+        "angulo_cenital": 89.637865,
+        "distancia_inclinada": 58.4313,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Instrumento recién retornado de mantenimiento."
+      },
+      {
+        "estacion": "E-1",
+        "punto_atras": "BM-12",
+        "punto_visado": "E-2",
+        "angulo_horizontal": 181.701289,
+        "angulo_cenital": 89.640226,
+        "distancia_inclinada": 61.7323,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Prisma de repuesto, modelo distinto al habitual."
+      },
+      {
+        "estacion": "E-2",
+        "punto_atras": "E-1",
+        "punto_visado": "E-3",
+        "angulo_horizontal": 179.299108,
+        "angulo_cenital": 89.694467,
+        "distancia_inclinada": 55.3321,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Sin novedad."
+      },
+      {
+        "estacion": "E-3",
+        "punto_atras": "E-2",
+        "punto_visado": "BM-20",
+        "angulo_horizontal": 179.400776,
+        "angulo_cenital": 89.691188,
+        "distancia_inclinada": 49.8307,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Sin novedad."
+      },
+      {
+        "estacion": "BM-20",
+        "punto_atras": "E-3",
+        "punto_visado": "BM-21",
+        "angulo_horizontal": 265.501716,
+        "angulo_cenital": null,
+        "distancia_inclinada": null,
+        "altura_instrumento": null,
+        "altura_prisma": null,
+        "observaciones": ""
+      }
+    ]
+  },
+  "error_inducido": {
+    "tipo": "distancia_sistematica",
+    "diagnostico_esperado": "distancia_sistematica",
+    "estacion": null,
+    "firma": {
+      "cierre_angular_dentro_tolerancia": true,
+      "cierre_lineal_dentro_tolerancia": false,
+      "cierre_cota_dentro_tolerancia": true,
+      "anomalia": "error_proporcional_longitud"
+    }
+  },
+  "solucion_referencia": {
+    "generada_por_validador": true,
+    "puntos": [
+      {
+        "id": "BM-12",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "E-1",
+        "norte": 1040.2205,
+        "este": 1042.3839,
+        "cota": 3850.3513
+      },
+      {
+        "id": "E-2",
+        "norte": 1081.3651,
+        "este": 1088.404,
+        "cota": 3850.7209
+      },
+      {
+        "id": "E-3",
+        "norte": 1118.746,
+        "este": 1129.1989,
+        "cota": 3850.998
+      },
+      {
+        "id": "BM-20",
+        "norte": 1152.7927,
+        "este": 1165.5837,
+        "cota": 3851.2486
+      }
+    ],
+    "tramos": [
+      {
+        "azimut": 46.500187,
+        "distancia_horizontal": 58.4302,
+        "desnivel": 0.3513
+      },
+      {
+        "azimut": 48.201476,
+        "distancia_horizontal": 61.7311,
+        "desnivel": 0.3696
+      },
+      {
+        "azimut": 47.500584,
+        "distancia_horizontal": 55.3313,
+        "desnivel": 0.2771
+      },
+      {
+        "azimut": 46.90136,
+        "distancia_horizontal": 49.83,
+        "desnivel": 0.2506
+      }
+    ],
+    "perimetro_m": 225.3226,
+    "azimut_cierre_calculado": 132.403076,
+    "error_angular_segundos": 11.07,
+    "error_lineal_m": 0.1226,
+    "error_norte_m": 0.0805,
+    "error_este_m": 0.0924,
+    "error_cota_m": 0.0025,
+    "relacion_cierre": 1838.0,
+    "uso_tolerancia": 1.632
+  }
+}

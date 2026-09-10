@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0",
+  "identificacion": {
+    "id": "gal-118-replanteo-12",
+    "titulo": "Dar línea al frente — Galería 118 N",
+    "bloque": "D",
+    "orden": 12,
+    "tipo_ejercicio": "replanteo",
+    "andamiaje": "bajo"
+  },
+  "encargo": {
+    "labor": "Galería 118 N — frente de avance",
+    "solicitante": "Jefe de Topografía",
+    "contexto": "El jumbo está en el frente esperando la línea de perforación. Debes entregar los datos de replanteo desde la estación de control E-3, orientando a BM-20, hacia el punto de diseño del eje de la galería.",
+    "objetivo": "Calcula el ángulo a girar desde la referencia, la distancia horizontal y el desnivel al punto de diseño, y decide si entregas la línea."
+  },
+  "parametros": {
+    "unidad_angular": "grados_decimales",
+    "unidad_lineal": "metros",
+    "sistema_coordenadas": "local_mina",
+    "tolerancia": {
+      "angular_seg": 30.0,
+      "lineal_m": 0.01
+    }
+  },
+  "decision": {
+    "correcta": "aceptar",
+    "justificaciones": [
+      {
+        "id": "j1",
+        "texto": "La estación de control está verificada, los datos de replanteo se calculan directamente de las coordenadas y no hay ninguna observación que impida entregar la línea.",
+        "correcta": true
+      },
+      {
+        "id": "j2",
+        "texto": "Antes de replantear hay que reobservar la poligonal completa del nivel.",
+        "correcta": false,
+        "tipo_distractor": "confusion_frecuente"
+      },
+      {
+        "id": "j3",
+        "texto": "El replanteo debe entregarse en azimut absoluto, no como ángulo a girar desde la referencia.",
+        "correcta": false,
+        "tipo_distractor": "tecnicamente_falso"
+      },
+      {
+        "id": "j4",
+        "texto": "El frente está ventilado y sostenido, condición suficiente para entregar la línea.",
+        "correcta": false,
+        "tipo_distractor": "cierto_pero_irrelevante"
+      }
+    ]
+  },
+  "consecuencia": {
+    "aceptar": {
+      "texto": "Entregaste la línea. El jumbo perforó sobre el eje de diseño y el avance de la guardia quedó dentro de tolerancia.",
+      "impacto": "bajo"
+    },
+    "compensar": {
+      "texto": "No hay nada que compensar en un replanteo: los datos se derivan de coordenadas conocidas. El jumbo esperó sin línea.",
+      "impacto": "medio"
+    },
+    "repetir": {
+      "texto": "Mandaste a reobservar una estación verificada. El jumbo perdió media guardia esperando la línea.",
+      "impacto": "alto"
+    },
+    "escalar": {
+      "texto": "Escalaste una tarea de rutina. El frente esperó y el jefe de topografía indicó que entregaras la línea.",
+      "impacto": "medio"
+    }
+  },
+  "diagnostico": {
+    "que_habia": "No había ningún problema. Este caso evalúa si sabes resolver el problema inverso y entregar la línea sin demorar el frente.",
+    "por_que": "El replanteo es aproximadamente la mitad del trabajo real de un topógrafo de mina: no sólo documentar lo ejecutado, sino ubicar dónde debe ejecutarse. Un error de replanteo desvía la labor; un error de levantamiento sólo la documenta mal.",
+    "como_detectar": "El replanteo es el problema inverso del levantamiento: de coordenadas a azimut y distancia. Se entrega como ángulo a girar desde una referencia visible, porque es lo que el operador puede materializar con el instrumento."
+  },
+  "metadatos": {
+    "autor": "equipo TopoLux",
+    "validado_por": "PENDIENTE — requiere topógrafo de mina",
+    "origen": "manual",
+    "estado": "borrador"
+  },
+  "replanteo": {
+    "estacion": {
+      "id": "E-3",
+      "norte": 1101.56,
+      "este": 1108.24,
+      "cota": 3850.72
+    },
+    "referencia": {
+      "id": "BM-20",
+      "norte": 1132.18,
+      "este": 1141.07,
+      "cota": 3850.9
+    },
+    "objetivo": {
+      "id": "D-14",
+      "norte": 1128.4,
+      "este": 1136.9,
+      "cota": 3850.91
+    },
+    "alturas": {
+      "instrumento": 1.482,
+      "prisma": 1.5
+    },
+    "observaciones": [
+      "Estación E-3 verificada contra el arrastre de control del nivel.",
+      "Jumbo en posición. Frente ventilado y sostenido."
+    ],
+    "entregable": [
+      "angulo_a_girar",
+      "distancia_horizontal",
+      "desnivel"
+    ]
+  },
+  "solucion_referencia": {
+    "generada_por_validador": true,
+    "azimut_referencia": 46.994839,
+    "azimut_objetivo": 46.878216,
+    "angulo_a_girar": 359.883377,
+    "distancia_horizontal": 39.2655,
+    "desnivel": 0.19,
+    "angulo_cenital": 89.696492
+  },
+  "error_inducido": {
+    "tipo": "ninguno",
+    "diagnostico_esperado": "ninguno",
+    "firma": {
+      "anomalia": "ninguna"
+    }
+  }
+}

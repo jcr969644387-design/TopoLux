@@ -1,0 +1,254 @@
+{
+  "schema_version": "1.0",
+  "identificacion": {
+    "id": "gal-118-limpio-01",
+    "titulo": "Arrastre de control — Galería 118 N",
+    "bloque": "A",
+    "orden": 1,
+    "tipo_ejercicio": "poligonal_abierta",
+    "andamiaje": "alto"
+  },
+  "encargo": {
+    "labor": "Galería 118 N — Nivel 3850",
+    "solicitante": "Jefe de Topografía",
+    "contexto": "Se arrastró la poligonal de control desde BM-12, en la bocamina, hasta BM-20, en el crucero principal. La brigada entrega la libreta al cierre de guardia.",
+    "objetivo": "Procesa la poligonal, verifica los cierres contra la tolerancia del estándar y decide si el trabajo se entrega."
+  },
+  "parametros": {
+    "unidad_angular": "grados_decimales",
+    "unidad_lineal": "metros",
+    "sistema_coordenadas": "local_mina",
+    "tolerancia": {
+      "angular_seg": 60.0,
+      "lineal_m": 0.0486,
+      "cota_m": 0.05,
+      "denominador": 3000,
+      "n_angulos": 4,
+      "fuente": "Estándar de la operación — PENDIENTE de validación por topógrafo de mina"
+    }
+  },
+  "decision": {
+    "correcta": "aceptar",
+    "justificaciones": [
+      {
+        "id": "j1",
+        "texto": "Los tres cierres están holgadamente dentro de tolerancia y el residuo es despreciable frente a la longitud levantada.",
+        "correcta": true
+      },
+      {
+        "id": "j2",
+        "texto": "El cierre angular es exactamente cero, lo que confirma que no hubo errores.",
+        "correcta": false,
+        "tipo_distractor": "tecnicamente_falso"
+      },
+      {
+        "id": "j3",
+        "texto": "La poligonal es corta, y en poligonales cortas no se verifica el cierre.",
+        "correcta": false,
+        "tipo_distractor": "tecnicamente_falso"
+      },
+      {
+        "id": "j4",
+        "texto": "La labor tiene sostenimiento de shotcrete, lo que garantiza estabilidad de los puntos.",
+        "correcta": false,
+        "tipo_distractor": "cierto_pero_irrelevante"
+      }
+    ]
+  },
+  "consecuencia": {
+    "aceptar": {
+      "texto": "Entregaste el arrastre. Las coordenadas de BM-20 quedan como control del nivel y el planeamiento las usa sin observaciones.",
+      "impacto": "bajo"
+    },
+    "compensar": {
+      "texto": "Compensaste un residuo de {{error_lineal_m}} m. No es un error, pero invertiste tiempo de gabinete en repartir una diferencia irrelevante para la escala de la labor.",
+      "impacto": "bajo"
+    },
+    "repetir": {
+      "texto": "Mandaste a la brigada a repetir un levantamiento correcto. Un turno de topografía perdido y el frente sin control por 8 horas.",
+      "impacto": "medio"
+    },
+    "escalar": {
+      "texto": "Reportaste al jefe de topografía un trabajo que estaba bien. Perdiste credibilidad para cuando reportes algo real.",
+      "impacto": "medio"
+    }
+  },
+  "diagnostico": {
+    "que_habia": "No había ningún error. Los residuos de cierre corresponden a la precisión normal del instrumento y del operador.",
+    "por_que": "Todo levantamiento tiene error residual. Un cierre de cero exacto sería sospechoso, no ideal: sugeriría datos forzados.",
+    "como_detectar": "Compara el cierre contra la tolerancia, no contra cero. Si el residuo es una fracción pequeña de la tolerancia, el trabajo está bien."
+  },
+  "metadatos": {
+    "autor": "equipo TopoLux",
+    "validado_por": "PENDIENTE — requiere topógrafo de mina",
+    "origen": "manual",
+    "estado": "borrador"
+  },
+  "control": {
+    "punto_arranque": {
+      "id": "BM-12",
+      "norte": 1000.0,
+      "este": 1000.0,
+      "cota": 3850.0
+    },
+    "punto_orientacion": {
+      "id": "BM-11",
+      "norte": 1042.18,
+      "este": 955.64,
+      "cota": 3849.12
+    },
+    "punto_cierre": {
+      "id": "BM-20",
+      "norte": 1099.7208,
+      "este": 1106.2255,
+      "cota": 3850.6836
+    },
+    "referencia_cierre": {
+      "id": "BM-21",
+      "azimut": 132.4
+    }
+  },
+  "diseno": {
+    "eje": [
+      {
+        "id": "D-0",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "D-1",
+        "norte": 1033.1787,
+        "este": 1034.963,
+        "cota": 3850.241
+      },
+      {
+        "id": "D-2",
+        "norte": 1068.9846,
+        "este": 1073.4948,
+        "cota": 3850.504
+      },
+      {
+        "id": "D-3",
+        "norte": 1099.7208,
+        "este": 1106.2255,
+        "cota": 3850.6836
+      }
+    ]
+  },
+  "libreta": {
+    "generada_por_validador": true,
+    "estaciones": [
+      {
+        "estacion": "BM-12",
+        "punto_atras": "BM-11",
+        "punto_visado": "E-1",
+        "angulo_horizontal": 92.942333,
+        "angulo_cenital": 89.692442,
+        "distancia_inclinada": 48.2022,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Estación sobre pilar de concreto. Visibilidad buena."
+      },
+      {
+        "estacion": "E-1",
+        "punto_atras": "BM-12",
+        "punto_visado": "E-2",
+        "angulo_horizontal": 180.599715,
+        "angulo_cenital": 89.69281,
+        "distancia_inclinada": 52.6007,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Labor con sostenimiento de shotcrete."
+      },
+      {
+        "estacion": "E-2",
+        "punto_atras": "E-1",
+        "punto_visado": "BM-20",
+        "angulo_horizontal": 179.700266,
+        "angulo_cenital": 89.748764,
+        "distancia_inclinada": 44.8986,
+        "altura_instrumento": 1.482,
+        "altura_prisma": 1.5,
+        "observaciones": "Prisma sobre trípode. Sin vibración de equipos."
+      },
+      {
+        "estacion": "BM-20",
+        "punto_atras": "E-2",
+        "punto_visado": "BM-21",
+        "angulo_horizontal": 265.599282,
+        "angulo_cenital": null,
+        "distancia_inclinada": null,
+        "altura_instrumento": null,
+        "altura_prisma": null,
+        "observaciones": ""
+      }
+    ]
+  },
+  "error_inducido": {
+    "tipo": "ninguno",
+    "diagnostico_esperado": "ninguno",
+    "estacion": null,
+    "firma": {
+      "cierre_angular_dentro_tolerancia": true,
+      "cierre_lineal_dentro_tolerancia": true,
+      "cierre_cota_dentro_tolerancia": true,
+      "anomalia": "ninguna"
+    }
+  },
+  "solucion_referencia": {
+    "generada_por_validador": true,
+    "puntos": [
+      {
+        "id": "BM-12",
+        "norte": 1000.0,
+        "este": 1000.0,
+        "cota": 3850.0
+      },
+      {
+        "id": "E-1",
+        "norte": 1033.1801,
+        "este": 1034.9637,
+        "cota": 3850.2407
+      },
+      {
+        "id": "E-2",
+        "norte": 1068.9866,
+        "este": 1073.4948,
+        "cota": 3850.5048
+      },
+      {
+        "id": "BM-20",
+        "norte": 1099.7219,
+        "este": 1106.2238,
+        "cota": 3850.6836
+      }
+    ],
+    "tramos": [
+      {
+        "azimut": 46.49932,
+        "distancia_horizontal": 48.2015,
+        "desnivel": 0.2407
+      },
+      {
+        "azimut": 47.099035,
+        "distancia_horizontal": 52.5999,
+        "desnivel": 0.264
+      },
+      {
+        "azimut": 46.7993,
+        "distancia_horizontal": 44.8982,
+        "desnivel": 0.1789
+      }
+    ],
+    "perimetro_m": 145.6996,
+    "azimut_cierre_calculado": 132.398582,
+    "error_angular_segundos": -5.1,
+    "error_lineal_m": 0.0021,
+    "error_norte_m": 0.0012,
+    "error_este_m": -0.0017,
+    "error_cota_m": 0.0,
+    "relacion_cierre": 70732.8,
+    "uso_tolerancia": 0.085
+  }
+}
