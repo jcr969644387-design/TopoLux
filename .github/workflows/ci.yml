@@ -1,0 +1,68 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validar:
+    name: Validar casos y motor topográfico
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      # El generador es también el validador: si un caso deja de ser coherente
+      # (firma numérica equivocada, decisión incompatible con el resultado, dos
+      # errores con la misma firma), este paso falla y el contenido no se publica.
+      - name: Generar y validar los 12 casos
+        run: python3 tool/generar_casos.py
+
+      - name: Comprobar que los casos generados no difieren de los versionados
+        run: git diff --exit-code assets/casos/
+
+      - name: Instalar Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+
+      - name: Crear andamiaje de plataforma
+        run: flutter create --org pe.topolux --project-name topolux --platforms=android .
+
+      - name: Dependencias
+        run: flutter pub get
+
+      - name: Analizador estático
+        run: flutter analyze --no-fatal-infos
+
+      # Compara el motor Dart contra las soluciones de referencia generadas en
+      # Python. Es la prueba que impide que la app enseñe cálculos erróneos.
+      - name: Pruebas del motor
+        run: flutter test
+
+  apk:
+    name: Compilar APK
+    needs: validar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter create --org pe.topolux --project-name topolux --platforms=android .
+      - run: flutter pub get
+      - run: flutter build apk --release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: topolux-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
