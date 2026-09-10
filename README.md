@@ -15,14 +15,14 @@ compilación necesita el SDK de Flutter y el SDK de Android.
 
 ### Requisitos
 
-- Flutter 3.10 o superior (`flutter --version`)
+- Flutter 3.27 o superior (`flutter --version`)
 - Android SDK configurado (`flutter doctor` sin errores en la sección Android)
 - Python 3.10 o superior (sólo para regenerar los casos; no hace falta para compilar)
 
 ### Camino corto
 
 ```bash
-cd topolux
+cd TopoLux
 ./construir_apk.sh
 ```
 
@@ -31,7 +31,7 @@ El APK queda en `build/app/outputs/flutter-apk/app-release.apk`.
 ### Camino paso a paso
 
 ```bash
-cd topolux
+cd TopoLux
 
 # 1. Crear el andamiaje de plataforma (android/), que no viaja en este paquete
 flutter create --org pe.topolux --project-name topolux --platforms=android .
@@ -52,12 +52,24 @@ flutter build apk --release
 `flutter create` sobre un directorio existente **no toca** `lib/`, `test/`,
 `assets/` ni `pubspec.yaml`: sólo añade las carpetas de plataforma que faltan.
 
+Por eso `android/` está ignorado en `.gitignore` salvo los cuatro recursos de
+marca, que sí viajan en el repositorio: el manifiesto (que fija el nombre
+visible **TopoLux** y el icono), los PNG del lanzador, el icono adaptativo y el
+color de la pantalla de arranque. Como `flutter create` no sobrescribe archivos
+existentes, la plantilla ya no puede devolver el logotipo de Flutter ni el
+nombre en minúsculas. `--project-name topolux` va en minúscula porque es el
+nombre del paquete Dart, que Dart obliga a escribir así; no es lo que se ve en
+el teléfono.
+
 ---
 
 ## Estructura
 
 ```
-topolux/
+TopoLux/
+├── android/app/src/main/      Sólo la marca; el resto lo genera flutter create
+│   ├── AndroidManifest.xml    Nombre visible (TopoLux) e icono
+│   └── res/                   Icono del lanzador, adaptativo y arranque
 ├── tool/                      Generador y validador de casos (Python)
 │   ├── topo.py                Motor topográfico de referencia
 │   ├── contenido.py           Los 10 casos de poligonal
@@ -73,7 +85,9 @@ topolux/
 │   ├── datos/repositorios.dart
 │   ├── sesion/sesion_caso.dart   Máquina de estados del ciclo
 │   └── ui/                    Tema, pantallas, los 9 pasos y widgets
-└── test/motor_topografico_test.dart
+└── test/
+    ├── motor_topografico_test.dart   Motor Dart contra la referencia Python
+    └── widget_test.dart              Prueba de humo de la interfaz
 ```
 
 ---

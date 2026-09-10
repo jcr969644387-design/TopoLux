@@ -42,10 +42,10 @@ class CintaEstaciones extends StatelessWidget {
                     border: Border.all(
                       color: esActual
                           ? Paleta.tinta
-                          : (hecha ? Paleta.laton : Paleta.linea),
+                          : (hecha ? Paleta.laton : Paleta.lineaFuerte),
                       width: hecha && !esActual ? 1.6 : 1,
                     ),
-                    borderRadius: BorderRadius.circular(3),
+                    borderRadius: BorderRadius.circular(5),
                   ),
                   child: Row(
                     mainAxisSize: MainAxisSize.min,

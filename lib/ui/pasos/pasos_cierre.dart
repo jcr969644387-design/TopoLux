@@ -197,7 +197,7 @@ class PasoResumen extends StatelessWidget {
         ),
         const SizedBox(height: 12),
         Ficha(
-          fondo: Paleta.papel,
+          fondo: Paleta.nota,
           child: Column(children: [
             Dato('Ayudas usadas', '${s.ayudas}'),
             Dato('Error de este caso', errorPorClave(s.caso.diagnosticoEsperado).nombre),

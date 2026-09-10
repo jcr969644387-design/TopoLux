@@ -52,7 +52,8 @@ class _PantallaProgresoState extends State<PantallaProgreso> {
     return Scaffold(
       appBar: AppBar(title: const Text('Mi progreso')),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.fromLTRB(
+            16, 16, 16, 24 + MediaQuery.paddingOf(context).bottom),
         children: [
           Ficha(
             child: Column(children: [
@@ -83,7 +84,7 @@ class _PantallaProgresoState extends State<PantallaProgreso> {
             ),
           const SizedBox(height: 20),
           Ficha(
-            fondo: Paleta.papel,
+            fondo: Paleta.nota,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -162,7 +163,11 @@ class _FilaDominio extends StatelessWidget {
         children: [
           Row(
             children: [
-              Icon(_icono(estado), size: 18, color: Paleta.grafito),
+              Icon(_icono(estado),
+                  size: 18,
+                  color: estado == EstadoDominio.dominado
+                      ? Paleta.laton
+                      : Paleta.grafito),
               const SizedBox(width: 10),
               Expanded(
                 child: Text(tipo.nombre,

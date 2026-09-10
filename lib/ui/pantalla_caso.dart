@@ -8,6 +8,7 @@ import 'pasos/pasos_analisis.dart';
 import 'pasos/pasos_cierre.dart';
 import 'pasos/pasos_juicio.dart';
 import 'tema.dart';
+import 'widgets/marca.dart';
 
 class PantallaCaso extends StatefulWidget {
   final String casoId;
@@ -56,17 +57,18 @@ class _PantallaCasoState extends State<PantallaCaso> {
   Widget build(BuildContext context) {
     if (_error != null) {
       return Scaffold(
-        appBar: AppBar(),
-        body: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Text(_error!, style: Theme.of(context).textTheme.bodyMedium),
+        appBar: AppBar(title: const Text('TopoLux')),
+        body: SafeArea(
+          top: false,
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Text(_error!, style: Theme.of(context).textTheme.bodyMedium),
+          ),
         ),
       );
     }
     final s = _sesion;
-    if (s == null) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
-    }
+    if (s == null) return const PantallaCarga();
 
     return ListenableBuilder(
       listenable: s,
@@ -78,17 +80,30 @@ class _PantallaCasoState extends State<PantallaCaso> {
 
         return Scaffold(
             appBar: AppBar(
+              titleSpacing: 8,
               title: Column(
+                mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(s.caso.titulo,
-                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-                      overflow: TextOverflow.ellipsis),
-                  Text(tituloPaso[s.paso]!, style: cifraPequena),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: Paleta.sobreTinta,
+                      )),
+                  // El paso va sobre la cabecera oscura, así que lleva la
+                  // variante clara de la cifra pequeña.
+                  Text(tituloPaso[s.paso]!,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: cifraPequenaClara),
                 ],
               ),
               leading: IconButton(
                 icon: const Icon(Icons.close),
+                tooltip: 'Salir del caso',
                 onPressed: () => _confirmarSalida(context, s),
               ),
               bottom: PreferredSize(
@@ -96,12 +111,20 @@ class _PantallaCasoState extends State<PantallaCaso> {
                 child: LinearProgressIndicator(
                   value: (s.indicePaso + 1) / s.totalPasos,
                   minHeight: 3,
-                  backgroundColor: Paleta.linea,
-                  color: Paleta.laton,
+                  backgroundColor: Paleta.tintaSuave,
+                  color: Paleta.latonClaro,
                 ),
               ),
             ),
-            body: SafeArea(child: _cuerpo(s, rec)),
+            // El hueco de arriba lo cubre la cabecera. El de abajo lo cubre la
+            // barra de acciones; cuando no la hay (el resumen), lo reserva la
+            // propia SafeArea para que el último botón no quede debajo de los
+            // botones del teléfono.
+            body: SafeArea(
+              top: false,
+              bottom: s.paso == PasoCaso.resumen,
+              child: _cuerpo(s, rec),
+            ),
             bottomNavigationBar: s.paso == PasoCaso.resumen
                 ? null
                 : _barra(context, s),
@@ -150,32 +173,43 @@ class _PantallaCasoState extends State<PantallaCaso> {
   }
 
   Widget _barra(BuildContext context, SesionCaso s) {
-    return SafeArea(
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
-        decoration: const BoxDecoration(
-          border: Border(top: BorderSide(color: Paleta.linea)),
-          color: Paleta.papel,
-        ),
-        child: Row(
-          children: [
-            if (s.puedeRetroceder) ...[
+    // La SafeArea va dentro del Container y no fuera: así el color de la barra
+    // se pinta también detrás de la franja de navegación del teléfono, en vez
+    // de dejar ahí una banda del fondo de la página.
+    return Container(
+      decoration: const BoxDecoration(
+        border: Border(top: BorderSide(color: Paleta.linea)),
+        color: Paleta.papelAlto,
+      ),
+      child: SafeArea(
+        top: false,
+        child: Padding(
+          padding: const EdgeInsets.fromLTRB(16, 10, 16, 10),
+          child: Row(
+            children: [
+              if (s.puedeRetroceder) ...[
+                Expanded(
+                  child: OutlinedButton(
+                    onPressed: s.retroceder,
+                    child: const Text('Atrás'),
+                  ),
+                ),
+                const SizedBox(width: 12),
+              ],
               Expanded(
-                child: OutlinedButton(
-                  onPressed: s.retroceder,
-                  child: const Text('Atrás'),
+                flex: 2,
+                child: FilledButton(
+                  onPressed: s.puedeAvanzar ? () => s.avanzar() : null,
+                  // El rótulo más largo ("Verifica cada tramo") no cabe en
+                  // pantallas de 320 dp: encoge antes que desbordar el botón.
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text(_etiquetaAvance(s), maxLines: 1),
+                  ),
                 ),
               ),
-              const SizedBox(width: 12),
             ],
-            Expanded(
-              flex: 2,
-              child: FilledButton(
-                onPressed: s.puedeAvanzar ? () => s.avanzar() : null,
-                child: Text(_etiquetaAvance(s)),
-              ),
-            ),
-          ],
+          ),
         ),
       ),
     );

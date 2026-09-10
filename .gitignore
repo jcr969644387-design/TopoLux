@@ -1,7 +1,7 @@
 .dart_tool/
 .packages
 build/
-android/
+android/**
 ios/
 web/
 linux/
@@ -9,3 +9,33 @@ macos/
 windows/
 *.iml
 .idea/
+
+# El andamiaje de Android lo regenera `flutter create` en cada compilacion, y
+# ese comando no sobrescribe archivos existentes. Se versionan unicamente los
+# recursos de marca —nombre visible, icono y pantalla de arranque— porque son
+# lo unico que la plantilla por defecto pondria mal.
+!android/app/
+!android/app/src/
+!android/app/src/main/
+!android/app/src/main/AndroidManifest.xml
+!android/app/src/main/res/
+!android/app/src/main/res/drawable/
+!android/app/src/main/res/drawable/ic_launcher_background.xml
+!android/app/src/main/res/drawable/ic_launcher_foreground.xml
+!android/app/src/main/res/drawable/launch_background.xml
+!android/app/src/main/res/drawable-v21/
+!android/app/src/main/res/drawable-v21/launch_background.xml
+!android/app/src/main/res/mipmap-anydpi-v26/
+!android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml
+!android/app/src/main/res/mipmap-hdpi/
+!android/app/src/main/res/mipmap-hdpi/ic_launcher.png
+!android/app/src/main/res/mipmap-mdpi/
+!android/app/src/main/res/mipmap-mdpi/ic_launcher.png
+!android/app/src/main/res/mipmap-xhdpi/
+!android/app/src/main/res/mipmap-xhdpi/ic_launcher.png
+!android/app/src/main/res/mipmap-xxhdpi/
+!android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png
+!android/app/src/main/res/mipmap-xxxhdpi/
+!android/app/src/main/res/mipmap-xxxhdpi/ic_launcher.png
+!android/app/src/main/res/values/
+!android/app/src/main/res/values/colors.xml

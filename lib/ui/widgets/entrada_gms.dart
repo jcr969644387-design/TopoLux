@@ -71,7 +71,7 @@ class _EntradaGmsState extends State<EntradaGms> {
     bool decimal = false,
   }) {
     return SizedBox(
-      width: decimal ? 74 : 62,
+      width: decimal ? 84 : 72,
       child: TextField(
         controller: c,
         focusNode: foco,

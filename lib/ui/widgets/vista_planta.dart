@@ -36,7 +36,7 @@ class VistaPlanta extends StatelessWidget {
           decoration: BoxDecoration(
             color: Paleta.papelAlto,
             border: Border.all(color: Paleta.linea),
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: BorderRadius.circular(6),
           ),
           clipBehavior: Clip.antiAlias,
           child: InteractiveViewer(

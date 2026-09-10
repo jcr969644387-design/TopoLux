@@ -1,10 +1,12 @@
 name: topolux
-description: Entrenador de criterio topográfico para Ingeniería de Minas.
+description: TopoLux, entrenador de criterio topográfico para Ingeniería de Minas.
 publish_to: 'none'
-version: 1.0.0+1
+version: 1.0.1+2
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
+  # withValues y textScaler exigen Flutter 3.27 o superior.
+  flutter: '>=3.27.0'
 
 dependencies:
   flutter:

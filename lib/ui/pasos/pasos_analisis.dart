@@ -143,10 +143,17 @@ class _TarjetaEstacion extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       children: [
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text('Estación ${f.estacion}',
-                style: Theme.of(context).textTheme.titleLarge),
+            // El nombre de la estación cede antes que el contador: con el
+            // cuerpo de letra del sistema al máximo, ambos no caben.
+            Expanded(
+              child: Text('Estación ${f.estacion}',
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: Theme.of(context).textTheme.titleLarge),
+            ),
+            const SizedBox(width: 10),
             Text('$n de $total', style: cifraPequena),
           ],
         ),
@@ -183,7 +190,7 @@ class _TarjetaEstacion extends StatelessWidget {
         if (f.observaciones.isNotEmpty) ...[
           const SizedBox(height: 12),
           Ficha(
-            fondo: Paleta.papel,
+            fondo: Paleta.nota,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -257,7 +264,7 @@ class _Secciones extends StatelessWidget {
         for (final o in d.observaciones) ...[
           const SizedBox(height: 12),
           Ficha(
-            fondo: Paleta.papel,
+            fondo: Paleta.nota,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -314,7 +321,7 @@ class _DatosReplanteo extends StatelessWidget {
         for (final o in r.observaciones) ...[
           const SizedBox(height: 10),
           Ficha(
-            fondo: Paleta.papel,
+            fondo: Paleta.nota,
             child: Text(o, style: Theme.of(context).textTheme.bodySmall),
           ),
         ],
@@ -470,8 +477,8 @@ class _TarjetaTramoState extends State<_TarjetaTramo> {
                     setState(() => _mostrarProcedimiento = !_mostrarProcedimiento);
                   },
                   child: Text(_mostrarProcedimiento
-                      ? 'Ocultar procedimiento'
-                      : 'Ver procedimiento'),
+                      ? 'Ocultar'
+                      : 'Procedimiento'),
                 ),
               ),
               const SizedBox(width: 10),
@@ -483,7 +490,7 @@ class _TarjetaTramoState extends State<_TarjetaTramo> {
             if (_mostrarProcedimiento) ...[
               const SizedBox(height: 12),
               Ficha(
-                fondo: Paleta.papel,
+                fondo: Paleta.nota,
                 child: Text(
                   'Azimut del tramo = azimut de atrás + ángulo horizontal, '
                   'normalizado a [0°, 360°).\n'
@@ -585,7 +592,7 @@ class _CalculoSobreroturaState extends State<_CalculoSobrerotura> {
                         if (!_ayuda) s.usarAyuda();
                         setState(() => _ayuda = !_ayuda);
                       },
-                      child: Text(_ayuda ? 'Ocultar procedimiento' : 'Ver procedimiento'),
+                      child: Text(_ayuda ? 'Ocultar' : 'Procedimiento'),
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -597,7 +604,7 @@ class _CalculoSobreroturaState extends State<_CalculoSobrerotura> {
                 if (_ayuda) ...[
                   const SizedBox(height: 12),
                   Ficha(
-                    fondo: Paleta.papel,
+                    fondo: Paleta.nota,
                     child: Text(
                       'Volumen por áreas medias: suma, entre progresivas '
                       'consecutivas, el promedio de sus áreas multiplicado por '
@@ -708,7 +715,7 @@ class _CalculoReplanteoState extends State<_CalculoReplanteo> {
                         if (!_ayuda) s.usarAyuda();
                         setState(() => _ayuda = !_ayuda);
                       },
-                      child: Text(_ayuda ? 'Ocultar procedimiento' : 'Ver procedimiento'),
+                      child: Text(_ayuda ? 'Ocultar' : 'Procedimiento'),
                     ),
                   ),
                   const SizedBox(width: 10),
@@ -720,7 +727,7 @@ class _CalculoReplanteoState extends State<_CalculoReplanteo> {
                 if (_ayuda) ...[
                   const SizedBox(height: 12),
                   Ficha(
-                    fondo: Paleta.papel,
+                    fondo: Paleta.nota,
                     child: Text(
                       'Azimut entre dos puntos = arcotangente de (ΔEste / ΔNorte), '
                       'resolviendo el cuadrante y normalizando a [0°, 360°).\n'

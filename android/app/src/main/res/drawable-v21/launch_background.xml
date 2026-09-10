@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pantalla de arranque en el color de marca: evita el destello blanco de la
+     plantilla por defecto antes de que Flutter pinte el primer fotograma. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@color/topolux_arranque" />
+</layer-list>

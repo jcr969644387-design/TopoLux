@@ -55,7 +55,7 @@ class _Recordatorio extends StatelessWidget {
   Widget build(BuildContext context) {
     if (s.caso.tipo == TipoEjercicio.sobrerotura) {
       return Ficha(
-        fondo: Paleta.papel,
+        fondo: Paleta.nota,
         child: Column(children: [
           Dato('Sobrerotura media',
               '${s.sobreroturaLinealMedia!.toStringAsFixed(3)} m'),
@@ -66,7 +66,7 @@ class _Recordatorio extends StatelessWidget {
     }
     if (s.caso.tipo == TipoEjercicio.replanteo) {
       return Ficha(
-        fondo: Paleta.papel,
+        fondo: Paleta.nota,
         child: Text(
           'La estación de control está verificada contra el arrastre del nivel '
           'y los datos se derivan de coordenadas conocidas.',
@@ -77,7 +77,7 @@ class _Recordatorio extends StatelessWidget {
     final r = s.resultado!;
     final t = s.caso.tolerancia;
     return Ficha(
-      fondo: Paleta.papel,
+      fondo: Paleta.nota,
       child: Column(children: [
         Dato('Error angular',
             '${r.errorAngularSegundos.toStringAsFixed(1)}"  /  '

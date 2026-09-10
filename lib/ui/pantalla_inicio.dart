@@ -6,6 +6,7 @@ import '../dominio/motor_progresion.dart';
 import 'pantalla_caso.dart';
 import 'pantalla_progreso.dart';
 import 'tema.dart';
+import 'widgets/marca.dart';
 
 class PantallaInicio extends StatefulWidget {
   final RepositorioCasos casos;
@@ -49,9 +50,7 @@ class _PantallaInicioState extends State<PantallaInicio> {
 
   @override
   Widget build(BuildContext context) {
-    if (_cargando) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
-    }
+    if (_cargando) return const PantallaCarga();
 
     final motor =
         MotorProgresion(intentos: widget.progreso.intentos, indice: _indice);
@@ -63,7 +62,7 @@ class _PantallaInicioState extends State<PantallaInicio> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TopoLux'),
+        title: const MarcaTopoLux(),
         actions: [
           IconButton(
             icon: const Icon(Icons.insights_outlined),
@@ -80,8 +79,12 @@ class _PantallaInicioState extends State<PantallaInicio> {
           ),
         ],
       ),
+      // La lista corre por debajo de la barra de navegación del teléfono, pero
+      // su relleno inferior reserva ese hueco: así el último caso se puede
+      // pulsar entero y nada queda tapado por los botones del sistema.
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.fromLTRB(
+            16, 16, 16, 24 + MediaQuery.paddingOf(context).bottom),
         children: [
           Text('Topografía de mina',
               style: Theme.of(context).textTheme.titleLarge),
@@ -113,9 +116,9 @@ class _PantallaInicioState extends State<PantallaInicio> {
             )
           else
             Ficha(child: Text(rec.motivo)),
-          const SizedBox(height: 8),
+          const SizedBox(height: 10),
           Ficha(
-            fondo: Paleta.papel,
+            fondo: Paleta.nota,
             child: Row(
               children: [
                 Expanded(
@@ -125,6 +128,7 @@ class _PantallaInicioState extends State<PantallaInicio> {
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                 ),
+                const SizedBox(width: 10),
                 Text(
                   '${widget.progreso.intentos.map((e) => e.casoId).toSet().length}'
                   '/${_indice.length} casos',
@@ -171,7 +175,7 @@ class _FilaCaso extends StatelessWidget {
     final hecho = intento != null;
     return InkWell(
       onTap: alAbrir,
-      borderRadius: BorderRadius.circular(4),
+      borderRadius: BorderRadius.circular(6),
       child: Ficha(
         padding: const EdgeInsets.all(14),
         child: Row(
@@ -197,6 +201,7 @@ class _FilaCaso extends StatelessWidget {
                 ],
               ),
             ),
+            const SizedBox(width: 8),
             Icon(
               hecho ? Icons.check_circle_outline : Icons.chevron_right,
               size: 20,

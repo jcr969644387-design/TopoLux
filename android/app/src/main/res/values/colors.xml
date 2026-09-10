@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tinta de mina: mismo tono que Paleta.tinta en lib/ui/tema.dart. -->
+    <color name="ic_launcher_background">#0F2334</color>
+    <color name="topolux_arranque">#0F2334</color>
+</resources>

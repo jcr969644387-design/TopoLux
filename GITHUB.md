@@ -5,21 +5,21 @@ configurada. Faltan dos pasos que tienes que dar tú, porque requieren tu cuenta
 
 ## 1. Crear el repositorio vacío
 
-En GitHub: **New repository** → nombre `topolux` → **sin** README, sin
+En GitHub: **New repository** → nombre `TopoLux` → **sin** README, sin
 .gitignore y sin licencia (ya vienen en el paquete). Cópiate la URL.
 
 ## 2. Conectar y subir
 
 ```bash
-cd topolux
-git remote add origin https://github.com/TU-USUARIO/topolux.git
+cd TopoLux
+git remote add origin https://github.com/TU-USUARIO/TopoLux.git
 git push -u origin main
 ```
 
 Si usas SSH:
 
 ```bash
-git remote add origin git@github.com:TU-USUARIO/topolux.git
+git remote add origin git@github.com:TU-USUARIO/TopoLux.git
 git push -u origin main
 ```
 
